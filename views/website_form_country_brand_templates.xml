@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- //TODO working here -->
+        <template id="process_country_brand" name="Process Country brand">
+            <t t-call="website.layout">
+                <div class="container">
+                    <h1>Country brand</h1>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
