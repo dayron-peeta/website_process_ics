@@ -1,11 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- //TODO working here -->
-        <template id="process_country_brand" name="Process Country brand">
+        <template id="view_country_brand_application_form" name="Country Brand Application Form">
             <t t-call="website.layout">
                 <div class="container">
-                    <h1>Country brand</h1>
+                    <h1>Country Brand Application Form</h1>
+                    <form action="/process/country_brand/application_submit" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <!-- <t t-call="website.csrf_token"/> -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="person_type">Person Type</label>
+                                    <select name="person_type" class="form-control">
+                                        <option value="national_cuban">National Cuban</option>
+                                        <option value="national_foreign">National Foreign</option>
+                                        <option value="legal_cuban">Legal Cuban</option>
+                                        <option value="legal_foreign">Legal Foreign</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="entity_type">Entity Type</label>
+                                    <select name="entity_type" class="form-control">
+                                        <option value="state">State</option>
+                                        <option value="private">Private</option>
+                                        <option value="mixed">Mixed</option>
+                                        <option value="others">Others</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="full_name">Full Name / Official Denomination</label>
+                                    <input type="text" name="full_name" class="form-control" required ='True' maxlength="120"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_number">ID/REUP/NIT/Passport</label>
+                                    <input type="text" name="id_number" class="form-control" required ='True' maxlength="12"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" name="phone" class="form-control" maxlength="15"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="website">Website</label>
+                                    <input type="text" name="website" class="form-control" maxlength="120"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="social_profiles">Social Media Profiles</label>
+                                    <input type="text" name="social_profiles" class="form-control" maxlength="120"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" name="address" class="form-control" required ='True' maxlength="120"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country_id">Country</label>
+                                    <select name="country_id" class="form-control">
+                                        <!-- Populate dynamically with countries -->
+                                        <option value="cuba">Cuba</option>
+                                        <option value="other">Other Country</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="province_id">Province</label>
+                                    <select name="province_id" class="form-control">
+                                        <!-- Populate dynamically with provinces -->
+                                        <option value="havana">Havana</option>
+                                        <option value="other">Other Province</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="municipality_id">Municipality</label>
+                                    <select name="municipality_id" class="form-control">
+                                        <!-- Populate dynamically with municipalities -->
+                                        <option value="plaza">Plaza</option>
+                                        <option value="other">Other Municipality</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="postal_code">Postal Code</label>
+                                    <input type="text" name="postal_code" class="form-control" maxlength="10"/>
+                                </div>
+                            </div>
+
+                            <!-- Second column -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="legal_certification">Legal Certification</label>
+                                    <input type="file" name="legal_certification" class="form-control-file" required ='True'/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="commercial_registration">Commercial Registration</label>
+                                    <input type="text" name="commercial_registration" class="form-control" required ='True' maxlength="120"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cup_account_number">CUP Account Number</label>
+                                    <input type="text" name="cup_account_number" class="form-control" maxlength="16"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cup_bank_branch">CUP Bank Branch</label>
+                                    <input type="text" name="cup_bank_branch" class="form-control" maxlength="120"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mlc_account_number">MLC Account Number</label>
+                                    <input type="text" name="mlc_account_number" class="form-control" maxlength="16"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mlc_bank_branch">MLC Bank Branch</label>
+                                    <input type="text" name="mlc_bank_branch" class="form-control" maxlength="120"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="representation_license">Commercial Representation License</label>
+                                    <input type="text" name="representation_license" class="form-control" maxlength="120"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                        </div>
+                    </form>
                 </div>
             </t>
         </template>
