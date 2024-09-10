@@ -25,7 +25,7 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        # views
         'views/website_form_country_brand_templates.xml',
         'views/website_form_serial_publication_templates.xml',
         'views/website_form_website_templates.xml',
