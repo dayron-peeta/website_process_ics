@@ -12,9 +12,9 @@ class DfManagementProcessIcs(http.Controller):
 
     @http.route('/process/country_brand/application_form', type='http', auth='public', website=True)
     def application_form(self, **kw):
-        # provinces = request.env['res.partner.province_id'].sudo().search([])
+        provinces = request.env['df_management_process.cuban_province'].sudo().search([])
         return request.render('df_website_process_ics.view_country_brand_application_form', {
-            # 'provinces': provinces,
+            'provinces': provinces, # Pasar las provincias al QWeb
     })
         
 
