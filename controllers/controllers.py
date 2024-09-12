@@ -74,3 +74,11 @@ class DfManagementProcessIcs(http.Controller):
     def process_website(self, **kw):
         values = {}
         return request.render('df_website_process_ics.process_website', values)
+
+
+class CubanLocationController(http.Controller):
+
+    @http.route('/get_municipalities', type='json', auth='public')
+    def get_municipalities(self, province_id):
+        municipalities = request.env['df_management_process.cuban_municipality'].sudo().search([('province_id', '=', province_id)])
+        return [{'id': m.id, 'name': m.name} for m in municipalities]

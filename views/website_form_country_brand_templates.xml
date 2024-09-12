@@ -215,13 +215,16 @@
                                         <!-- Populate dynamically -->
                                     </select>
                                 </div>
-
+                                
                                 <!-- Provincia del Representante -->
                                 <div class="form-group">
                                     <label for="representative_province">Province</label>
                                     <select name="representative_province" class="form-control"
                                         required="true">
                                         <!-- Populate dynamically -->
+                                        <!-- <t t-foreach="request.env['df_management_process.cuban_province'].sudo().search([])" t-as="province">
+                                            <option t-att-value="cuban_province.id"><t t-esc="cuban_province.name"/></option>
+                                        </t> -->
                                     </select>
                                 </div>
 
@@ -231,6 +234,9 @@
                                     <select name="representative_municipality" class="form-control"
                                         required="true">
                                         <!-- Populate dynamically -->
+                                        <!-- <t t-foreach="request.env['df_management_process.cuban_municipality'].sudo().search([])" t-as="municipality">
+                                            <option t-att-value="cuban_municipality.id"><t t-esc="cuban_municipality.name"/></option>
+                                        </t> -->
                                     </select>
                                 </div>
 
