@@ -12,7 +12,11 @@ class DfManagementProcessIcs(http.Controller):
 
     @http.route('/process/country_brand/application_form', type='http', auth='public', website=True)
     def application_form(self, **kw):
-        return http.request.render('df_website_process_ics.view_country_brand_application_form', {})
+        # provinces = request.env['res.partner.province_id'].sudo().search([])
+        return request.render('df_website_process_ics.view_country_brand_application_form', {
+            # 'provinces': provinces,
+    })
+        
 
     @http.route('/process/country_brand/application_submit', type='http', auth='public', methods=['POST'], website=True)
     def application_form_submit(self, **post):

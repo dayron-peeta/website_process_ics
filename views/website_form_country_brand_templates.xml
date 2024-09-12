@@ -225,6 +225,9 @@
                                         <!-- <t t-foreach="request.env['df_management_process.cuban_province'].sudo().search([])" t-as="province">
                                             <option t-att-value="cuban_province.id"><t t-esc="cuban_province.name"/></option>
                                         </t> -->
+                                        <t t-foreach="provinces" t-as="province">
+                                            <option t-att-value="province.id"><t t-esc="province.name"/></option>
+                                        </t>
                                     </select>
                                 </div>
 
