@@ -22,6 +22,12 @@
         # DESOFT
         'df_website_process',
     ],
+    
+    'assets': {
+        'web.assets_frontend': [
+            'df_website_process_ics/static/src/js/process.js',
+        ],
+    },
 
     # always loaded
     'data': [

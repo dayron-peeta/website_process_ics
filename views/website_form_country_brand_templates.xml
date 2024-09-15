@@ -10,6 +10,9 @@
                         <!-- <t t-call="website.csrf_token"/> -->
                         <div class="row">
                             <!-- First column -->
+                            <input type="text" name="application_type" id="application_type" value='country_brand'
+                                style="display: none;" />
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="person_type">Person Type</label>
@@ -31,7 +34,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="other_entity_type">Other Entity Type </label>
-                                    <input type="text" name="other_entity_type" class="form-control" required='False' maxlength="120" />
+                                    <input type="text" name="other_entity_type" class="form-control"
+                                        required='False' maxlength="120" />
                                 </div>
                                 <div class="form-group">
                                     <label for="full_name">Full Name / Official Denomination</label>
@@ -40,7 +44,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="other_full_name">Other Full Name / Official Denomination</label>
+                                    <label for="other_full_name">Other Full Name / Official
+                                        Denomination</label>
                                     <input type="text" name="other_full_name" class="form-control"
                                         required='False' maxlength="120" />
                                 </div>
@@ -73,12 +78,12 @@
                                     <input type="text" name="address" class="form-control"
                                         required='True' maxlength="120" />
                                 </div>
-                                <div class="form-group mt-1 mb-1"  >
+                                <div class="form-group mt-1 mb-1">
                                     <label for="legal_certification">Legal Certification</label>
                                     <input type="file" name="legal_certification"
                                         class="form-control-file" required='True' />
                                 </div>
-                                
+
                             </div>
 
                             <!-- Second column -->
@@ -203,7 +208,7 @@
                                     <input type="file" name="representation_certificate"
                                         class="form-control-file" required="true" />
                                 </div>
-                                
+
                             </div>
                             <!-- Second column -->
                             <div class="col-md-6">
@@ -213,20 +218,29 @@
                                     <select name="representative_country" class="form-control"
                                         required="true">
                                         <!-- Populate dynamically -->
+                                        <t t-foreach="countries" t-as="country">
+                                            <option t-att-value="country.id">
+                                                <t t-esc="country.name" />
+                                            </option>
+                                        </t>
                                     </select>
                                 </div>
-                                
+
                                 <!-- Provincia del Representante -->
                                 <div class="form-group">
                                     <label for="representative_province">Province</label>
                                     <select name="representative_province" class="form-control"
                                         required="true">
                                         <!-- Populate dynamically -->
-                                        <!-- <t t-foreach="request.env['df_management_process.cuban_province'].sudo().search([])" t-as="province">
+                                        <!-- <t
+                                        t-foreach="request.env['df_management_process.cuban_province'].sudo().search([])"
+                                        t-as="province">
                                             <option t-att-value="cuban_province.id"><t t-esc="cuban_province.name"/></option>
                                         </t> -->
                                         <t t-foreach="provinces" t-as="province">
-                                            <option t-att-value="province.id"><t t-esc="province.name"/></option>
+                                            <option t-att-value="province.id">
+                                                <t t-esc="province.name" />
+                                            </option>
                                         </t>
                                     </select>
                                 </div>
@@ -237,7 +251,9 @@
                                     <select name="representative_municipality" class="form-control"
                                         required="true">
                                         <!-- Populate dynamically -->
-                                        <!-- <t t-foreach="request.env['df_management_process.cuban_municipality'].sudo().search([])" t-as="municipality">
+                                        <!-- <t
+                                        t-foreach="request.env['df_management_process.cuban_municipality'].sudo().search([])"
+                                        t-as="municipality">
                                             <option t-att-value="cuban_municipality.id"><t t-esc="cuban_municipality.name"/></option>
                                         </t> -->
                                     </select>
@@ -252,7 +268,7 @@
                             </div>
                         </div>
 
-                        <hr class="mt-3 mb-3" ></hr>
+                        <hr class="mt-3 mb-3"></hr>
                         <!-- Información acerca del uso de la marca país Cuba -->
                         <h3>Information about the use of the country brand Cuba </h3>
 
