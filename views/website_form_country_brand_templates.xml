@@ -10,7 +10,8 @@
                         <!-- <t t-call="website.csrf_token"/> -->
                         <div class="row">
                             <!-- First column -->
-                            <input type="text" name="application_type" id="application_type" value='country_brand'
+                            <input type="text" name="application_type" id="application_type"
+                                value='country_brand'
                                 style="display: none;" />
 
                             <div class="col-md-6">
@@ -39,11 +40,20 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="full_name">Full Name / Official Denomination</label>
-                                    <select name="full_name" class="form-control" required='True'>
-                                        <!-- Populate dynamically -->
+                                    <select name="full_name" id="full_name" class="form-control" required="True">
+                                        <!-- Aquí se cargan dinámicamente las entidades desde la
+                                        base de datos -->
+                                        <option value="">Select an entity</option>
+                                        <!-- <t t-foreach="request.env['your.model.entity'].sudo().search([])"
+                                            t-as="entity">
+                                            <option t-att-value="entity.id">
+                                                <t t-esc="entity.name" />
+                                            </option>
+                                        </t> -->
+                                        <option value="other">Other</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="other_full_name_group" style="display: none;">
                                     <label for="other_full_name">Other Full Name / Official
                                         Denomination</label>
                                     <input type="text" name="other_full_name" class="form-control"

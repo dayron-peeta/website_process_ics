@@ -23,12 +23,27 @@ class DfManagementProcessIcs(http.Controller):
     @http.route('/process/country_brand/application_submit', type='http', auth='public', methods=['POST'], website=True)
     def application_form_submit(self, **post):
         # Process the submitted data from the form
+        
+        # verificar si el valor del campo full_name es "other" y guardar el valor del campo other_full_name como una nueva entidad en la base de datos.
+        full_name = post.get('full_name')
+        other_full_name = post.get('other_full_name')
+
+        if full_name == 'other' and other_full_name:
+            # Crear una nueva entidad con el nombre introducido
+            new_entity = request.env['your.model.entity'].sudo().create({
+                'name': other_full_name
+            })
+            # Usar la nueva entidad en lugar de 'Other'
+            full_name = new_entity.id
+        
+        # Aquí puedes continuar con el proceso de guardado del formulario
+        # y usar `full_name` como el valor de la entidad seleccionada.
+        
+        # create the application
         request.env['country.brand.application'].sudo().create({
             'person_type': post.get('person_type'),
             'entity_type': post.get('entity_type'),
-            'other_entity_type': post.get('other_entity_type'),
-            'full_name': post.get('full_name'),
-            'other_full_name': post.get('other_full_name'),
+            'full_name': full_name,
             'id_number': post.get('id_number'),
             'phone': post.get('phone'),
             'email': post.get('email'),
