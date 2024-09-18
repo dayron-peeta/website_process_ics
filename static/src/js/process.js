@@ -6,7 +6,7 @@ odoo.define('df_website_process_ics.process', function (require) {
         console.log('//////////////////////////////////////////////////////////////////////////////////////////////¡Hola desde process.js!');
 
         // Función genérica para MOSTRAR/OCULTAR CAMPOS basados en la selección y cambiar el atributo 'required'
-        function toggleField(selectId, targetId, valuesToShow) {
+        function toggleField(selectId, targetId, valuesToShow, clearChildren = []) {
             var select = document.getElementById(selectId);
             var targetGroup = document.getElementById(targetId);
             var targetInput = targetGroup.querySelector('select, input'); // Busca el input o select dentro del div
@@ -21,24 +21,38 @@ odoo.define('df_website_process_ics.process', function (require) {
                 targetGroup.style.display = 'none';  // Oculta el campo
                 if (targetInput) {
                     targetInput.removeAttribute('required'); // Remueve 'required' cuando se oculta
+                    targetInput.value = ""; // Restablece el valor al ocultar
                 }
+                // Si el campo se oculta, ocultar también los hijos dependientes
+                clearChildren.forEach(function (childId) {
+                    var childGroup = document.getElementById(childId);
+                    if (childGroup) {
+                        childGroup.style.display = 'none'; // Oculta el campo hijo
+                        var childInput = childGroup.querySelector('select, input');
+                        if (childInput) {
+                            childInput.removeAttribute('required'); // Remueve 'required'
+                            childInput.value = ""; // Restablece el valor al ocultar
+                        }
+                    }
+                });
             }
         }
 
-
-        // Asocia el evento `change` al select
+        // Asocia el evento `change` al select de `person_type`
         $('#person_type').change(function () {
-            // Llama a `toggleField` pasando un array con los valores que deben mostrar el campo
-            toggleField('person_type', 'entity_type_group', ['legal_cuban', 'legal_foreign']);
+            toggleField('person_type', 'entity_type_group', ['legal_cuban', 'legal_foreign'], ['full_name_group', 'other_full_name_group']);
         });
 
+        // Asocia el evento `change` al select de `entity_type`
         $('#entity_type').change(function () {
-            toggleField('entity_type', 'full_name_group', ['state']);
+            toggleField('entity_type', 'full_name_group', ['state'], ['other_full_name_group']);
         });
 
+        // Asocia el evento `change` al select de `full_name`
         $('#full_name').change(function () {
             toggleField('full_name', 'other_full_name_group', ['other']);
         });
+
 
 
         $(document).ready(function () {
