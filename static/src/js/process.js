@@ -5,23 +5,41 @@ odoo.define('df_website_process_ics.process', function (require) {
     $(document).ready(function () {
         console.log('//////////////////////////////////////////////////////////////////////////////////////////////¡Hola desde process.js!');
 
-        //código JavaScript aquí
-        // Función para mostrar/ocultar el campo "other_full_name".
-        function toggleOtherFullName() {
-            var select = document.getElementById('full_name');
-            var otherFullNameGroup = document.getElementById('other_full_name_group');
-            
-            if (select.value === 'other') {
-                otherFullNameGroup.style.display = 'block'; // Muestra el campo
+        // Función genérica para MOSTRAR/OCULTAR CAMPOS basados en la selección y cambiar el atributo 'required'
+        function toggleField(selectId, targetId, valuesToShow) {
+            var select = document.getElementById(selectId);
+            var targetGroup = document.getElementById(targetId);
+            var targetInput = targetGroup.querySelector('select, input'); // Busca el input o select dentro del div
+
+            // Muestra el campo solo si el valor seleccionado está en `valuesToShow`
+            if (valuesToShow.includes(select.value)) {
+                targetGroup.style.display = 'block'; // Muestra el campo
+                if (targetInput) {
+                    targetInput.setAttribute('required', 'true'); // Establece 'required' cuando se muestra
+                }
             } else {
-                otherFullNameGroup.style.display = 'none';  // Oculta el campo
+                targetGroup.style.display = 'none';  // Oculta el campo
+                if (targetInput) {
+                    targetInput.removeAttribute('required'); // Remueve 'required' cuando se oculta
+                }
             }
         }
 
-         // Asocia el evento `change` al select de `full_name`
-        $('#full_name').change(function () {
-            toggleOtherFullName();  // Llama a la función cuando el valor cambia
+
+        // Asocia el evento `change` al select
+        $('#person_type').change(function () {
+            // Llama a `toggleField` pasando un array con los valores que deben mostrar el campo
+            toggleField('person_type', 'entity_type_group', ['legal_cuban', 'legal_foreign']);
         });
+
+        $('#entity_type').change(function () {
+            toggleField('entity_type', 'full_name_group', ['state']);
+        });
+
+        $('#full_name').change(function () {
+            toggleField('full_name', 'other_full_name_group', ['other']);
+        });
+
 
         $(document).ready(function () {
             $('select[name="representative_province"]').change(function () {

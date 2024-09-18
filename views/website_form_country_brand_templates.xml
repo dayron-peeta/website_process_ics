@@ -17,34 +17,31 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="person_type">Person Type</label>
-                                    <select name="person_type" class="form-control" required='True'>
+                                    <select name="person_type" id="person_type" class="form-control" required='True'>
                                         <option value="national_cuban">National Cuban</option>
                                         <option value="national_foreign">National Foreign</option>
                                         <option value="legal_cuban">Legal Cuban</option>
                                         <option value="legal_foreign">Legal Foreign</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="entity_type_group"  style="display: none;">
                                     <label for="entity_type">Entity Type</label>
-                                    <select name="entity_type" class="form-control" required='True'>
-                                        <option value="state">State</option>
+                                    <select name="entity_type" id="entity_type" class="form-control" required='True'>
                                         <option value="private">Private</option>
+                                        <option value="state">State</option>
                                         <option value="mixed">Mixed</option>
                                         <option value="others">Others</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="other_entity_type">Other Entity Type </label>
-                                    <input type="text" name="other_entity_type" class="form-control"
-                                        required='False' maxlength="120" />
-                                </div>
-                                <div class="form-group">
+                                <div class="form-group" id="full_name_group"  style="display: none;">
                                     <label for="full_name">Full Name / Official Denomination</label>
-                                    <select name="full_name" id="full_name" class="form-control" required="True">
+                                    <select name="full_name" id="full_name" class="form-control"
+                                        required="True">
                                         <!-- Aquí se cargan dinámicamente las entidades desde la
                                         base de datos -->
                                         <option value="">Select an entity</option>
-                                        <!-- <t t-foreach="request.env['your.model.entity'].sudo().search([])"
+                                        <!-- <t
+                                        t-foreach="request.env['your.model.entity'].sudo().search([])"
                                             t-as="entity">
                                             <option t-att-value="entity.id">
                                                 <t t-esc="entity.name" />
@@ -53,7 +50,8 @@
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
-                                <div class="form-group" id="other_full_name_group" style="display: none;">
+                                <div class="form-group" id="other_full_name_group"
+                                    style="display: none;">
                                     <label for="other_full_name">Other Full Name / Official
                                         Denomination</label>
                                     <input type="text" name="other_full_name" class="form-control"
@@ -71,7 +69,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control" />
+                                    <input type="email" name="email" class="form-control"
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                        title="Please enter a valid email address"
+                                        />
                                 </div>
                                 <div class="form-group">
                                     <label for="website">Website</label>
@@ -102,8 +103,11 @@
                                     <label for="country_id">Country</label>
                                     <select name="country_id" class="form-control" required='True'>
                                         <!-- Populate dynamically with countries -->
-                                        <option value="cuba">Cuba</option>
-                                        <option value="other">Other Country</option>
+                                        <t t-foreach="request.env['res.country'].sudo().search([])" t-as="country">
+                                            <option t-att-value="country.id" t-att-selected="country.name == 'Cuba'">
+                                                <t t-esc="country.name"/>
+                                            </option>
+                                        </t>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -227,10 +231,10 @@
                                     <label for="representative_country">Country</label>
                                     <select name="representative_country" class="form-control"
                                         required="true">
-                                        <!-- Populate dynamically -->
-                                        <t t-foreach="countries" t-as="country">
-                                            <option t-att-value="country.id">
-                                                <t t-esc="country.name" />
+                                        <!-- Populate dynamically with countries -->
+                                        <t t-foreach="request.env['res.country'].sudo().search([])" t-as="country">
+                                            <option t-att-value="country.id" t-att-selected="country.name == 'Cuba'">
+                                                <t t-esc="country.name"/>
                                             </option>
                                         </t>
                                     </select>
@@ -421,7 +425,12 @@
                                     <label for="event_country">Country</label>
                                     <select name="event_country" class="form-control"
                                         required="true">
-                                        <!-- Populate dynamically -->
+                                        <!-- Populate dynamically with countries -->
+                                        <t t-foreach="request.env['res.country'].sudo().search([])" t-as="country">
+                                            <option t-att-value="country.id" t-att-selected="country.name == 'Cuba'">
+                                                <t t-esc="country.name"/>
+                                            </option>
+                                        </t>
                                     </select>
                                 </div>
 
