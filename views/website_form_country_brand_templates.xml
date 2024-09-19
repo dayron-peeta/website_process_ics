@@ -8,484 +8,557 @@
                     <form action="/process/country_brand/application_submit" method="post"
                         enctype="multipart/form-data" class="form-horizontal">
                         <!-- <t t-call="website.csrf_token"/> -->
-                        <div class="row">
-                            <!-- First column -->
-                            <input type="text" name="application_type" id="application_type"
-                                value='country_brand'
-                                style="display: none;" />
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="person_type">Person Type</label>
-                                    <select name="person_type" id="person_type" class="form-control"
-                                        required='True'>
-                                        <option value="national_cuban">National Cuban</option>
-                                        <option value="national_foreign">National Foreign</option>
-                                        <option value="legal_cuban">Legal Cuban</option>
-                                        <option value="legal_foreign">Legal Foreign</option>
-                                    </select>
-                                </div>
-                                <div class="form-group" id="entity_type_group"
-                                    style="display: none;">
-                                    <label for="entity_type">Entity Type</label>
-                                    <select name="entity_type" id="entity_type" class="form-control"
-                                        required='True'>
-                                        <option value="private">Private</option>
-                                        <option value="state">State</option>
-                                        <option value="mixed">Mixed</option>
-                                        <option value="others">Others</option>
-                                    </select>
-                                </div>
-                                <div class="form-group" id="full_name_group" style="display: none;">
-                                    <label for="full_name">Full Name / Official Denomination</label>
-                                    <select name="full_name" id="full_name" class="form-control"
-                                        required="True">
-                                        <!-- Aquí se cargan dinámicamente las entidades desde la
-                                        base de datos -->
-                                        <option value="">Select an entity</option>
-                                        <!-- <t
-                                        t-foreach="request.env['your.model.entity'].sudo().search([])"
-                                            t-as="entity">
-                                            <option t-att-value="entity.id">
-                                                <t t-esc="entity.name" />
-                                            </option>
-                                        </t> -->
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                <div class="form-group" id="other_full_name_group"
-                                    style="display: none;">
-                                    <label for="other_full_name">Other Full Name / Official
-                                        Denomination</label>
-                                    <input type="text" name="other_full_name" class="form-control"
-                                        required='False' maxlength="120" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="id_number">ID/REUP/NIT/Passport</label>
-                                    <input type="text" name="id_number" class="form-control"
-                                        required='True' maxlength="12" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" name="phone" class="form-control"
-                                        maxlength="15" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control"
-                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                                        title="Please enter a valid email address"
-                                    />
-                                </div>
-                                <div class="form-group">
-                                    <label for="website">Website</label>
-                                    <input type="text" name="website" class="form-control"
-                                        maxlength="120" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="social_profiles">Social Media Profiles</label>
-                                    <input type="text" name="social_profiles" class="form-control"
-                                        maxlength="120" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input type="text" name="address" class="form-control"
-                                        required='True' maxlength="120" />
-                                </div>
-                                <div class="form-group mt-1 mb-1">
-                                    <label for="legal_certification">Legal Certification</label>
-                                    <input type="file" name="legal_certification"
-                                        class="form-control-file" required='True' />
-                                </div>
-
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <button class="nav-link active" id="nav-home-tab"
+                                    data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+                                    role="tab" aria-controls="nav-home" aria-selected="true">
+                                    Application</button>
+                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-profile" type="button" role="tab"
+                                    aria-controls="nav-profile" aria-selected="false">Legal
+                                    representative</button>
+                                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-contact" type="button" role="tab"
+                                    aria-controls="nav-contact" aria-selected="false">Use of the
+                                    country brand</button>
                             </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                aria-labelledby="nav-home-tab">
+                                <!-- Datos de la solicitud -->
+                                <div class="row">
+                                    <!-- First column -->
+                                    <input type="text" name="application_type" id="application_type"
+                                        value='country_brand'
+                                        style="display: none;" />
 
-                            <!-- Second column -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="country_id">Country</label>
-                                    <select name="country_id" class="form-control" required='True'>
-                                        <!-- Populate dynamically with countries -->
-                                        <t t-foreach="request.env['res.country'].sudo().search([])"
-                                            t-as="country">
-                                            <option t-att-value="country.id"
-                                                t-att-selected="country.name == 'Cuba'">
-                                                <t t-esc="country.name" />
-                                            </option>
-                                        </t>
-                                    </select>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="person_type" class="form-label">Person Type</label>
+                                            <select name="person_type" id="person_type"
+                                                class="form-select"
+                                                required='True'>
+                                                <option value="national_cuban">National Cuban</option>
+                                                <option value="national_foreign">National Foreign</option>
+                                                <option value="legal_cuban">Legal Cuban</option>
+                                                <option value="legal_foreign">Legal Foreign</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" id="entity_type_group"
+                                            style="display: none;">
+                                            <label for="entity_type" class="form-label">Entity Type</label>
+                                            <select name="entity_type" id="entity_type"
+                                                class="form-select"
+                                                required='True'>
+                                                <option value="private">Private</option>
+                                                <option value="state">State</option>
+                                                <option value="mixed">Mixed</option>
+                                                <option value="others">Others</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" id="full_name_group"
+                                            style="display: none;">
+                                            <label for="full_name">Full Name / Official Denomination</label>
+                                            <select name="full_name" id="full_name"
+                                                class="form-select"
+                                                required="True">
+                                                <!-- Aquí se cargan dinámicamente las entidades
+                                                desde la
+                                                base de datos -->
+                                                <option value="">Select an entity</option>
+                                                <!-- <t
+                                                t-foreach="request.env['your.model.entity'].sudo().search([])"
+                                                    t-as="entity">
+                                                    <option t-att-value="entity.id">
+                                                        <t t-esc="entity.name" />
+                                                    </option>
+                                                </t> -->
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" id="other_full_name_group"
+                                            style="display: none;">
+                                            <label for="other_full_name">Other Full Name / Official
+                                                Denomination</label>
+                                            <input type="text" name="other_full_name"
+                                                class="form-control"
+                                                required='False' maxlength="120" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="id_number">ID/REUP/NIT/Passport</label>
+                                            <input type="text" name="id_number" class="form-control"
+                                                required='True' maxlength="12" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Phone</label>
+                                            <input type="text" name="phone" class="form-control"
+                                                maxlength="15" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" class="form-control"
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                                title="Please enter a valid email address"
+                                            />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="website">Website</label>
+                                            <input type="text" name="website" class="form-control"
+                                                maxlength="120" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="social_profiles">Social Media Profiles</label>
+                                            <input type="text" name="social_profiles"
+                                                class="form-control"
+                                                maxlength="120" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address">Address</label>
+                                            <input type="text" name="address" class="form-control"
+                                                required='True' maxlength="120" />
+                                        </div>
+                                        <div class="form-group mt-1 mb-1">
+                                            <label for="legal_certification">Legal Certification</label>
+                                            <input type="file" name="legal_certification"
+                                                class="form-control-file" required='True' />
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Second column -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="country_id" class="form-label">Country</label>
+                                            <select name="country_id" class="form-select"
+                                                required='True'>
+                                                <!-- Populate dynamically with countries -->
+                                                <t
+                                                    t-foreach="request.env['res.country'].sudo().search([])"
+                                                    t-as="country">
+                                                    <option t-att-value="country.id"
+                                                        t-att-selected="country.name == 'Cuba'">
+                                                        <t t-esc="country.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="province_id">Province</label>
+                                            <select name="province_id" class="form-select"
+                                                required='True'>
+                                                <!-- Populate dynamically with provinces -->
+                                                <option value="havana">Havana</option>
+                                                <option value="other">Other Province</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="municipality_id">Municipality</label>
+                                            <select name="municipality_id" class="form-select"
+                                                required='True'>
+                                                <!-- Populate dynamically with municipalities -->
+                                                <option value="plaza">Plaza</option>
+                                                <option value="other">Other Municipality</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="postal_code">Postal Code</label>
+                                            <input type="text" name="postal_code"
+                                                class="form-control"
+                                                maxlength="10" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="commercial_registration">Commercial
+                                                Registration</label>
+                                            <input type="text" name="commercial_registration"
+                                                class="form-control" required='True' maxlength="120" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cup_account_number">CUP Account Number</label>
+                                            <input type="text" name="cup_account_number"
+                                                id="cup_account_number"
+                                                class="form-control" maxlength="16" />
+                                        </div>
+                                        <div class="form-group" id="cup_bank_branch_group"
+                                            style="display: none;">
+                                            <label for="cup_bank_branch">CUP Bank Branch</label>
+                                            <input type="text" name="cup_bank_branch"
+                                                class="form-control"
+                                                required='False' maxlength="120" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="mlc_account_number">MLC Account Number</label>
+                                            <input type="text" name="mlc_account_number"
+                                                id="mlc_account_number"
+                                                class="form-control" maxlength="16" />
+                                        </div>
+                                        <div class="form-group" id="mlc_account_number_group"
+                                            style="display: none;">
+                                            <label for="mlc_bank_branch">MLC Bank Branch</label>
+                                            <input type="text" name="mlc_bank_branch"
+                                                class="form-control"
+                                                required='False' maxlength="120" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cc_account_number">Convertible Currency
+                                                Account
+                                                Number</label>
+                                            <input type="text" name="cc_account_number"
+                                                id="cc_account_number"
+                                                class="form-control" maxlength="16" />
+                                        </div>
+                                        <div class="form-group" id="cc_bank_branch_group"
+                                            style="display: none;">
+                                            <label for="cc_bank_branch">Convertible Currency Bank
+                                                Branch</label>
+                                            <input type="text" name="cc_bank_branch"
+                                                class="form-control"
+                                                required='False' maxlength="120" />
+                                        </div>
+                                        <div class="form-group" id="representation_license_group"
+                                            style="display: none;">
+                                            <label for="representation_license">Commercial
+                                                Representation
+                                                License</label>
+                                            <input type="text" name="representation_license"
+                                                class="form-control" maxlength="120" />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="province_id">Province</label>
-                                    <select name="province_id" class="form-control" required='True'>
-                                        <!-- Populate dynamically with provinces -->
-                                        <option value="havana">Havana</option>
-                                        <option value="other">Other Province</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="municipality_id">Municipality</label>
-                                    <select name="municipality_id" class="form-control"
-                                        required='True'>
-                                        <!-- Populate dynamically with municipalities -->
-                                        <option value="plaza">Plaza</option>
-                                        <option value="other">Other Municipality</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="postal_code">Postal Code</label>
-                                    <input type="text" name="postal_code" class="form-control"
-                                        maxlength="10" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="commercial_registration">Commercial Registration</label>
-                                    <input type="text" name="commercial_registration"
-                                        class="form-control" required='True' maxlength="120" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="cup_account_number">CUP Account Number</label>
-                                    <input type="text" name="cup_account_number"
-                                        id="cup_account_number"
-                                        class="form-control" maxlength="16" />
-                                </div>
-                                <div class="form-group" id="cup_bank_branch_group"
-                                    style="display: none;">
-                                    <label for="cup_bank_branch">CUP Bank Branch</label>
-                                    <input type="text" name="cup_bank_branch" class="form-control"
-                                        required='False' maxlength="120" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="mlc_account_number">MLC Account Number</label>
-                                    <input type="text" name="mlc_account_number"
-                                        id="mlc_account_number"
-                                        class="form-control" maxlength="16" />
-                                </div>
-                                <div class="form-group" id="mlc_account_number_group"
-                                    style="display: none;">
-                                    <label for="mlc_bank_branch">MLC Bank Branch</label>
-                                    <input type="text" name="mlc_bank_branch" class="form-control"
-                                        required='False' maxlength="120" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="cc_account_number">Convertible Currency Account
-                                        Number</label>
-                                    <input type="text" name="cc_account_number"
-                                        id="cc_account_number"
-                                        class="form-control" maxlength="16" />
-                                </div>
-                                <div class="form-group" id="cc_bank_branch_group"
-                                    style="display: none;">
-                                    <label for="cc_bank_branch">Convertible Currency Bank Branch</label>
-                                    <input type="text" name="cc_bank_branch" class="form-control"
-                                        required='False' maxlength="120" />
-                                </div>
-                                <div class="form-group" id="representation_license_group"
-                                    style="display: none;">
-                                    <label for="representation_license">Commercial Representation
-                                        License</label>
-                                    <input type="text" name="representation_license"
-                                        class="form-control" maxlength="120" />
-                                </div>
+
+                                <hr class="mt-3 mb-3"></hr>
                             </div>
-                        </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                aria-labelledby="nav-profile-tab">
+                                <!-- Datos del Representante Legal -->
+                                <h3>Legal Representative Data</h3>
+                                <div class="row">
+                                    <!-- First column -->
+                                    <div class="col-md-6">
+                                        <!-- Nombre del Representante -->
+                                        <div class="form-group">
+                                            <label for="representative_name">Full Name</label>
+                                            <input type="text" name="representative_name"
+                                                class="form-control"
+                                                maxlength="120" required="true" />
+                                        </div>
 
-                        <hr class="mt-3 mb-3"></hr>
-                        <!-- Datos del Representante Legal -->
-                        <h3>Legal Representative Data</h3>
-                        <div class="row">
-                            <!-- First column -->
-                            <div class="col-md-6">
-                                <!-- Nombre del Representante -->
-                                <div class="form-group">
-                                    <label for="representative_name">Full Name</label>
-                                    <input type="text" name="representative_name"
-                                        class="form-control"
-                                        maxlength="120" required="true" />
+                                        <!-- CI/REUP/NIT/Pasaporte del Representante -->
+                                        <div class="form-group">
+                                            <label for="representative_id">ID/REUP/NIT/Passport</label>
+                                            <input type="text" name="representative_id"
+                                                class="form-control"
+                                                maxlength="12" required="true" />
+                                        </div>
+
+                                        <!-- Correo Electrónico del Representante -->
+                                        <div class="form-group">
+                                            <label for="representative_email">Email</label>
+                                            <input type="email" name="representative_email"
+                                                class="form-control"
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                                title="Please enter a valid email address"
+                                                required="true" />
+                                        </div>
+
+                                        <!-- Dirección del Representante -->
+                                        <div class="form-group">
+                                            <label for="representative_address">Address</label>
+                                            <input type="text" name="representative_address"
+                                                class="form-control"
+                                                maxlength="120" required="true" />
+                                        </div>
+
+                                        <!-- Aval de Representación Legal -->
+                                        <div class="form-group mt-1 mb-1">
+                                            <label for="representation_certificate">Legal
+                                                Representation
+                                                Certificate</label>
+                                            <input type="file" name="representation_certificate"
+                                                class="form-control-file" required="true" />
+                                        </div>
+
+                                    </div>
+                                    <!-- Second column -->
+                                    <div class="col-md-6">
+                                        <!-- País del Representante -->
+                                        <div class="form-group">
+                                            <label for="representative_country">Country</label>
+                                            <select name="representative_country"
+                                                class="form-select"
+                                                required="true">
+                                                <!-- Populate dynamically with countries -->
+                                                <t
+                                                    t-foreach="request.env['res.country'].sudo().search([])"
+                                                    t-as="country">
+                                                    <option t-att-value="country.id"
+                                                        t-att-selected="country.name == 'Cuba'">
+                                                        <t t-esc="country.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+
+                                        <!-- Provincia del Representante -->
+                                        <div class="form-group">
+                                            <label for="representative_province">Province</label>
+                                            <select name="representative_province"
+                                                class="form-select"
+                                                required="true">
+                                                <!-- Populate dynamically -->
+                                                <t t-foreach="provinces" t-as="province">
+                                                    <option t-att-value="province.id">
+                                                        <t t-esc="province.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+
+                                        <!-- Municipio del Representante -->
+                                        <div class="form-group">
+                                            <label for="representative_municipality">Municipality</label>
+                                            <select name="representative_municipality"
+                                                class="form-select"
+                                                required="true">
+                                                <!-- Populate dynamically -->
+                                            </select>
+                                        </div>
+
+                                        <!-- Código Postal del Representante -->
+                                        <div class="form-group">
+                                            <label for="representative_postal_code">Postal Code</label>
+                                            <input type="text" name="representative_postal_code"
+                                                class="form-control" maxlength="10" />
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <!-- CI/REUP/NIT/Pasaporte del Representante -->
-                                <div class="form-group">
-                                    <label for="representative_id">ID/REUP/NIT/Passport</label>
-                                    <input type="text" name="representative_id" class="form-control"
-                                        maxlength="12" required="true" />
-                                </div>
-
-                                <!-- Correo Electrónico del Representante -->
-                                <div class="form-group">
-                                    <label for="representative_email">Email</label>
-                                    <input type="email" name="representative_email"
-                                        class="form-control"
-                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                                        title="Please enter a valid email address"
-                                        required="true" />
-                                </div>
-
-                                <!-- Dirección del Representante -->
-                                <div class="form-group">
-                                    <label for="representative_address">Address</label>
-                                    <input type="text" name="representative_address"
-                                        class="form-control"
-                                        maxlength="120" required="true" />
-                                </div>
-
-                                <!-- Aval de Representación Legal -->
-                                <div class="form-group mt-1 mb-1">
-                                    <label for="representation_certificate">Legal Representation
-                                        Certificate</label>
-                                    <input type="file" name="representation_certificate"
-                                        class="form-control-file" required="true" />
-                                </div>
-
+                                <hr class="mt-3 mb-3"></hr>
                             </div>
-                            <!-- Second column -->
-                            <div class="col-md-6">
-                                <!-- País del Representante -->
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                aria-labelledby="nav-contact-tab">
+                                <!-- Información acerca del uso de la marca país Cuba -->
+                                <h3>Information about the use of the country brand Cuba </h3>
+
+                                <!-- Tipo de Uso de la Marca País -->
                                 <div class="form-group">
-                                    <label for="representative_country">Country</label>
-                                    <select name="representative_country" class="form-control"
+                                    <label for="usage_type" class="form-label">Usage Type</label>
+                                    <select name="usage_type" id="usage_type" class="form-select"
                                         required="true">
-                                        <!-- Populate dynamically with countries -->
-                                        <t t-foreach="request.env['res.country'].sudo().search([])"
-                                            t-as="country">
-                                            <option t-att-value="country.id"
-                                                t-att-selected="country.name == 'Cuba'">
-                                                <t t-esc="country.name" />
-                                            </option>
-                                        </t>
+                                        <option value="">Select usage type</option>
+                                        <option value="organizational">Organizational</option>
+                                        <option value="goods_services">Goods and Services</option>
+                                        <option value="events">Events</option>
                                     </select>
                                 </div>
 
-                                <!-- Provincia del Representante -->
-                                <div class="form-group">
-                                    <label for="representative_province">Province</label>
-                                    <select name="representative_province" class="form-control"
-                                        required="true">
-                                        <!-- Populate dynamically -->
-                                        <t t-foreach="provinces" t-as="province">
-                                            <option t-att-value="province.id">
-                                                <t t-esc="province.name" />
-                                            </option>
-                                        </t>
-                                    </select>
-                                </div>
-
-                                <!-- Municipio del Representante -->
-                                <div class="form-group">
-                                    <label for="representative_municipality">Municipality</label>
-                                    <select name="representative_municipality" class="form-control"
-                                        required="true">
-                                        <!-- Populate dynamically -->
-                                    </select>
-                                </div>
-
-                                <!-- Código Postal del Representante -->
-                                <div class="form-group">
-                                    <label for="representative_postal_code">Postal Code</label>
-                                    <input type="text" name="representative_postal_code"
-                                        class="form-control" maxlength="10" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr class="mt-3 mb-3"></hr>
-                        <!-- Información acerca del uso de la marca país Cuba -->
-                        <h3>Information about the use of the country brand Cuba </h3>
-
-                        <!-- Tipo de Uso de la Marca País -->
-                        <div class="form-group">
-                            <label for="usage_type">Usage Type</label>
-                            <select name="usage_type" id="usage_type" class="form-control"
-                                required="true">
-                                <option value="">Select usage type</option>
-                                <option value="organizational">Organizational</option>
-                                <option value="goods_services">Goods and Services</option>
-                                <option value="events">Events</option>
-                            </select>
-                        </div>
-
-                        <!-- Aplicaciones -->
-                        <!-- Si es para uso organizacional -->
-                        <div class="form-group mt-3 mb-3" id="organizational_applications_group"
-                            style="display: none;">
-                            <h4 for="applications">Applications (Organizational)</h4>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="applications"
-                                        value="web_social_media"> Websites and Social Media </input>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="applications" value="stationery">
-                                        Stationery </input>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="applications"
-                                        value="promotional_materials"> Promotional Materials and
-                                        Objects </input>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="applications"
-                                        value="email_signatures"> Email Signatures </input>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="applications" value="others" id="checkbox_others_organizational">
-                                        Others </input>
-                                </label>
-                            </div>
-                            <div class="form-group" id="other_org_application_group" style="display: none;">
-                                <label for="other_organizational_application">Other Application</label>
-                                <input type="text" name="other_organizational_application" 
-                                    class="form-control" maxlength="120" required="false" />
-                            </div>
-                        </div>
-
-                        <!-- Si es para uso de bienes y servicios -->
-                        <div class="form-group mt-3 mb-3" id="gods_and_services_applications_group"
-                            style="display: none;">
-                            <h4 for="applications">Applications (Goods and Services)</h4>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="applications"
-                                        value="product_labels"> Product Labels </input>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="applications" value="packaging">
-                                        Packaging </input>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="applications"
-                                        value="advertising_materials"> Advertising related to
-                                        brands,products and services </input>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="applications" value="others" id="checkbox_others_gods_and_services">
-                                        Others </input>
-                                </label>
-                            </div>
-                            <div class="form-group" id="other_g_s_application_group" style="display: none;">
-                                <label for="other_g_s_application">Other Application</label>
-                                <input type="text" name="other_g_s_application"
-                                    class="form-control" maxlength="120" required="false"  />
-                            </div>
-                        </div>
-
-
-                        <!-- Si es Evento -->
-                        <div id="event_info_group"
-                            style="display: none;">
-                            <div class="row">
-                                <!-- First column -->
-                                <div class="col-md-6">
-                                    <!-- Nombre del Evento -->
-                                    <div class="form-group">
-                                        <label for="event_name">Event Name</label>
-                                        <input type="text" name="event_name" class="form-control"
-                                            maxlength="120" required="true" />
+                                <!-- Aplicaciones -->
+                                <!-- Si es para uso organizacional -->
+                                <div class="form-group mt-3 mb-3"
+                                    id="organizational_applications_group"
+                                    style="display: none;">
+                                    <h4 for="applications">Applications (Organizational)</h4>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox"
+                                                name="applications"
+                                                value="web_social_media"> Websites and Social Media </input>
+                                        </label>
                                     </div>
-
-                                    <!-- Duración del Evento -->
-                                    <div class="form-group">
-                                        <label for="event_duration">Event Duration</label>
-                                        <input type="time" name="event_duration"
-                                            class="form-control"
-                                            required="true" />
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox"
+                                                name="applications" value="stationery">
+                                                Stationery </input>
+                                        </label>
                                     </div>
-
-                                    <!-- Modalidad del Evento -->
-                                    <div class="form-group">
-                                        <label for="event_modality">Event Modality</label>
-                                        <select name="event_modality" class="form-control"
-                                            required="true">
-                                            <option value="onsite">On-site</option>
-                                            <option value="online">Online</option>
-                                            <option value="hybrid">Hybrid</option>
-                                        </select>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox"
+                                                name="applications"
+                                                value="promotional_materials"> Promotional Materials
+                                                and
+                                                Objects </input>
+                                        </label>
                                     </div>
-
-                                    <!-- Sede del Evento -->
-                                    <div class="form-group">
-                                        <label for="event_venue">Venue</label>
-                                        <input type="text" name="event_venue" class="form-control"
-                                            maxlength="120" required="true" />
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox"
+                                                name="applications"
+                                                value="email_signatures"> Email Signatures </input>
+                                        </label>
                                     </div>
-
-                                    <!-- Documentación del Evento -->
-                                    <div class="form-group mt-1 mb-1">
-                                        <label for="event_documentation">Documentation</label>
-                                        <input type="file" name="event_documentation"
-                                            class="form-control-file"
-                                            required="true" />
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox"
+                                                name="applications" value="others"
+                                                id="checkbox_others_organizational">
+                                                Others </input>
+                                        </label>
+                                    </div>
+                                    <div class="form-group" id="other_org_application_group"
+                                        style="display: none;">
+                                        <label for="other_organizational_application">Other
+                                            Application</label>
+                                        <input type="text" name="other_organizational_application"
+                                            class="form-control" maxlength="120" required="false" />
                                     </div>
                                 </div>
-                                <!-- Second column -->
-                                <div class="col-md-6">
-                                    <!-- País del Evento -->
-                                    <div class="form-group">
-                                        <label for="event_country">Country</label>
-                                        <select name="event_country" class="form-control"
-                                            required="true">
-                                            <!-- Populate dynamically with countries -->
-                                            <t
-                                                t-foreach="request.env['res.country'].sudo().search([])"
-                                                t-as="country">
-                                                <option t-att-value="country.id"
-                                                    t-att-selected="country.name == 'Cuba'">
-                                                    <t t-esc="country.name" />
-                                                </option>
-                                            </t>
-                                        </select>
-                                    </div>
 
-                                    <!-- Provincia del Evento -->
-                                    <div class="form-group">
-                                        <label for="event_province">Province</label>
-                                        <select name="event_province" class="form-control"
-                                            required="true">
-                                            <!-- Populate dynamically -->
-                                        </select>
+                                <!-- Si es para uso de bienes y servicios -->
+                                <div class="form-group mt-3 mb-3"
+                                    id="gods_and_services_applications_group"
+                                    style="display: none;">
+                                    <h4 for="applications">Applications (Goods and Services)</h4>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox"
+                                                name="applications"
+                                                value="product_labels"> Product Labels </input>
+                                        </label>
                                     </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox"
+                                                name="applications" value="packaging">
+                                                Packaging </input>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox"
+                                                name="applications"
+                                                value="advertising_materials"> Advertising related
+                                                to
+                                                brands,products and services </input>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox"
+                                                name="applications" value="others"
+                                                id="checkbox_others_gods_and_services">
+                                                Others </input>
+                                        </label>
+                                    </div>
+                                    <div class="form-group" id="other_g_s_application_group"
+                                        style="display: none;">
+                                        <label for="other_g_s_application">Other Application</label>
+                                        <input type="text" name="other_g_s_application"
+                                            class="form-control" maxlength="120" required="false" />
+                                    </div>
+                                </div>
 
-                                    <!-- Municipio del Evento -->
-                                    <div class="form-group">
-                                        <label for="event_municipality">Municipality</label>
-                                        <select name="representative_municipality"
-                                            class="form-control"
-                                            required="true">
-                                            <!-- Populate dynamically -->
-                                        </select>
-                                    </div>
 
-                                    <!-- Ámbito -->
-                                    <div class="form-group">
-                                        <label for="event_scope">Scope</label>
-                                        <select name="event_scope" class="form-control"
-                                            required="true">
-                                            <option value="national">National</option>
-                                            <option value="international">International</option>
-                                        </select>
+                                <!-- Si es Evento -->
+                                <div id="event_info_group"
+                                    style="display: none;">
+                                    <div class="row">
+                                        <!-- First column -->
+                                        <div class="col-md-6">
+                                            <!-- Nombre del Evento -->
+                                            <div class="form-group">
+                                                <label for="event_name">Event Name</label>
+                                                <input type="text" name="event_name"
+                                                    class="form-control"
+                                                    maxlength="120" required="true" />
+                                            </div>
+
+                                            <!-- Duración del Evento -->
+                                            <div class="form-group">
+                                                <label for="event_duration">Event Duration</label>
+                                                <input type="time" name="event_duration"
+                                                    class="form-control"
+                                                    required="true" />
+                                            </div>
+
+                                            <!-- Modalidad del Evento -->
+                                            <div class="form-group">
+                                                <label for="event_modality">Event Modality</label>
+                                                <select name="event_modality" class="form-select"
+                                                    required="true">
+                                                    <option value="onsite">On-site</option>
+                                                    <option value="online">Online</option>
+                                                    <option value="hybrid">Hybrid</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Sede del Evento -->
+                                            <div class="form-group">
+                                                <label for="event_venue">Venue</label>
+                                                <input type="text" name="event_venue"
+                                                    class="form-control"
+                                                    maxlength="120" required="true" />
+                                            </div>
+
+                                            <!-- Documentación del Evento -->
+                                            <div class="form-group mt-1 mb-1">
+                                                <label for="event_documentation">Documentation</label>
+                                                <input type="file" name="event_documentation"
+                                                    class="form-control-file"
+                                                    required="true" />
+                                            </div>
+                                        </div>
+                                        <!-- Second column -->
+                                        <div class="col-md-6">
+                                            <!-- País del Evento -->
+                                            <div class="form-group">
+                                                <label for="event_country">Country</label>
+                                                <select name="event_country" class="form-select"
+                                                    required="true">
+                                                    <!-- Populate dynamically with countries -->
+                                                    <t
+                                                        t-foreach="request.env['res.country'].sudo().search([])"
+                                                        t-as="country">
+                                                        <option t-att-value="country.id"
+                                                            t-att-selected="country.name == 'Cuba'">
+                                                            <t t-esc="country.name" />
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+
+                                            <!-- Provincia del Evento -->
+                                            <div class="form-group">
+                                                <label for="event_province">Province</label>
+                                                <select name="event_province" class="form-select"
+                                                    required="true">
+                                                    <!-- Populate dynamically -->
+                                                </select>
+                                            </div>
+
+                                            <!-- Municipio del Evento -->
+                                            <div class="form-group">
+                                                <label for="event_municipality">Municipality</label>
+                                                <select name="representative_municipality"
+                                                    class="form-select"
+                                                    required="true">
+                                                    <!-- Populate dynamically -->
+                                                </select>
+                                            </div>
+
+                                            <!-- Ámbito -->
+                                            <div class="form-group">
+                                                <label for="event_scope">Scope</label>
+                                                <select name="event_scope" class="form-select"
+                                                    required="true">
+                                                    <option value="national">National</option>
+                                                    <option value="international">International</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
+                                </div>
+
+
+                                <!-- Botón de Enviar -->
+                                <div class="form-group mt-4 mb-5">
+                                    <button type="submit" class="btn btn-primary">Submit Application</button>
                                 </div>
                             </div>
                         </div>
 
-
-                        <!-- Botón de Enviar -->
-                        <div class="form-group mt-4 mb-5">
-                            <button type="submit" class="btn btn-primary">Submit Application</button>
-                        </div>
                     </form>
                 </div>
             </t>
