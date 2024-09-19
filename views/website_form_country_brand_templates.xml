@@ -17,23 +17,26 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="person_type">Person Type</label>
-                                    <select name="person_type" id="person_type" class="form-control" required='True'>
+                                    <select name="person_type" id="person_type" class="form-control"
+                                        required='True'>
                                         <option value="national_cuban">National Cuban</option>
                                         <option value="national_foreign">National Foreign</option>
                                         <option value="legal_cuban">Legal Cuban</option>
                                         <option value="legal_foreign">Legal Foreign</option>
                                     </select>
                                 </div>
-                                <div class="form-group" id="entity_type_group"  style="display: none;">
+                                <div class="form-group" id="entity_type_group"
+                                    style="display: none;">
                                     <label for="entity_type">Entity Type</label>
-                                    <select name="entity_type" id="entity_type" class="form-control" required='True'>
+                                    <select name="entity_type" id="entity_type" class="form-control"
+                                        required='True'>
                                         <option value="private">Private</option>
                                         <option value="state">State</option>
                                         <option value="mixed">Mixed</option>
                                         <option value="others">Others</option>
                                     </select>
                                 </div>
-                                <div class="form-group" id="full_name_group"  style="display: none;">
+                                <div class="form-group" id="full_name_group" style="display: none;">
                                     <label for="full_name">Full Name / Official Denomination</label>
                                     <select name="full_name" id="full_name" class="form-control"
                                         required="True">
@@ -72,7 +75,7 @@
                                     <input type="email" name="email" class="form-control"
                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                         title="Please enter a valid email address"
-                                        />
+                                    />
                                 </div>
                                 <div class="form-group">
                                     <label for="website">Website</label>
@@ -103,9 +106,11 @@
                                     <label for="country_id">Country</label>
                                     <select name="country_id" class="form-control" required='True'>
                                         <!-- Populate dynamically with countries -->
-                                        <t t-foreach="request.env['res.country'].sudo().search([])" t-as="country">
-                                            <option t-att-value="country.id" t-att-selected="country.name == 'Cuba'">
-                                                <t t-esc="country.name"/>
+                                        <t t-foreach="request.env['res.country'].sudo().search([])"
+                                            t-as="country">
+                                            <option t-att-value="country.id"
+                                                t-att-selected="country.name == 'Cuba'">
+                                                <t t-esc="country.name" />
                                             </option>
                                         </t>
                                     </select>
@@ -139,22 +144,24 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="cup_account_number">CUP Account Number</label>
-                                    <input type="text" name="cup_account_number" id="cup_account_number"
+                                    <input type="text" name="cup_account_number"
+                                        id="cup_account_number"
                                         class="form-control" maxlength="16" />
                                 </div>
                                 <div class="form-group" id="cup_bank_branch_group"
-                                style="display: none;">
+                                    style="display: none;">
                                     <label for="cup_bank_branch">CUP Bank Branch</label>
                                     <input type="text" name="cup_bank_branch" class="form-control"
                                         required='False' maxlength="120" />
                                 </div>
                                 <div class="form-group">
                                     <label for="mlc_account_number">MLC Account Number</label>
-                                    <input type="text" name="mlc_account_number" id="mlc_account_number"
+                                    <input type="text" name="mlc_account_number"
+                                        id="mlc_account_number"
                                         class="form-control" maxlength="16" />
                                 </div>
                                 <div class="form-group" id="mlc_account_number_group"
-                                style="display: none;">
+                                    style="display: none;">
                                     <label for="mlc_bank_branch">MLC Bank Branch</label>
                                     <input type="text" name="mlc_bank_branch" class="form-control"
                                         required='False' maxlength="120" />
@@ -162,17 +169,18 @@
                                 <div class="form-group">
                                     <label for="cc_account_number">Convertible Currency Account
                                         Number</label>
-                                    <input type="text" name="cc_account_number" id="cc_account_number"
+                                    <input type="text" name="cc_account_number"
+                                        id="cc_account_number"
                                         class="form-control" maxlength="16" />
                                 </div>
                                 <div class="form-group" id="cc_bank_branch_group"
-                                style="display: none;">
+                                    style="display: none;">
                                     <label for="cc_bank_branch">Convertible Currency Bank Branch</label>
                                     <input type="text" name="cc_bank_branch" class="form-control"
                                         required='False' maxlength="120" />
                                 </div>
                                 <div class="form-group" id="representation_license_group"
-                                style="display: none;">
+                                    style="display: none;">
                                     <label for="representation_license">Commercial Representation
                                         License</label>
                                     <input type="text" name="representation_license"
@@ -207,6 +215,8 @@
                                     <label for="representative_email">Email</label>
                                     <input type="email" name="representative_email"
                                         class="form-control"
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                        title="Please enter a valid email address"
                                         required="true" />
                                 </div>
 
@@ -235,9 +245,11 @@
                                     <select name="representative_country" class="form-control"
                                         required="true">
                                         <!-- Populate dynamically with countries -->
-                                        <t t-foreach="request.env['res.country'].sudo().search([])" t-as="country">
-                                            <option t-att-value="country.id" t-att-selected="country.name == 'Cuba'">
-                                                <t t-esc="country.name"/>
+                                        <t t-foreach="request.env['res.country'].sudo().search([])"
+                                            t-as="country">
+                                            <option t-att-value="country.id"
+                                                t-att-selected="country.name == 'Cuba'">
+                                                <t t-esc="country.name" />
                                             </option>
                                         </t>
                                     </select>
@@ -249,11 +261,6 @@
                                     <select name="representative_province" class="form-control"
                                         required="true">
                                         <!-- Populate dynamically -->
-                                        <!-- <t
-                                        t-foreach="request.env['df_management_process.cuban_province'].sudo().search([])"
-                                        t-as="province">
-                                            <option t-att-value="cuban_province.id"><t t-esc="cuban_province.name"/></option>
-                                        </t> -->
                                         <t t-foreach="provinces" t-as="province">
                                             <option t-att-value="province.id">
                                                 <t t-esc="province.name" />
@@ -268,11 +275,6 @@
                                     <select name="representative_municipality" class="form-control"
                                         required="true">
                                         <!-- Populate dynamically -->
-                                        <!-- <t
-                                        t-foreach="request.env['df_management_process.cuban_municipality'].sudo().search([])"
-                                        t-as="municipality">
-                                            <option t-att-value="cuban_municipality.id"><t t-esc="cuban_municipality.name"/></option>
-                                        </t> -->
                                     </select>
                                 </div>
 
@@ -292,7 +294,9 @@
                         <!-- Tipo de Uso de la Marca País -->
                         <div class="form-group">
                             <label for="usage_type">Usage Type</label>
-                            <select name="usage_type" class="form-control" required="true">
+                            <select name="usage_type" id="usage_type" class="form-control"
+                                required="true">
+                                <option value="">Select usage type</option>
                                 <option value="organizational">Organizational</option>
                                 <option value="goods_services">Goods and Services</option>
                                 <option value="events">Events</option>
@@ -301,7 +305,8 @@
 
                         <!-- Aplicaciones -->
                         <!-- Si es para uso organizacional -->
-                        <div class="form-group mt-3 mb-3">
+                        <div class="form-group mt-3 mb-3" id="organizational_applications_group"
+                            style="display: none;">
                             <h4 for="applications">Applications (Organizational)</h4>
                             <div class="checkbox">
                                 <label>
@@ -330,19 +335,20 @@
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="applications" value="others">
+                                    <input type="checkbox" name="applications" value="others" id="checkbox_others_organizational">
                                         Others </input>
                                 </label>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="other_org_application_group" style="display: none;">
                                 <label for="other_organizational_application">Other Application</label>
-                                <input type="text" name="other_organizational_application"
-                                    class="form-control" maxlength="120" />
+                                <input type="text" name="other_organizational_application" 
+                                    class="form-control" maxlength="120" required="false" />
                             </div>
                         </div>
 
                         <!-- Si es para uso de bienes y servicios -->
-                        <div class="form-group mt-3 mb-3">
+                        <div class="form-group mt-3 mb-3" id="gods_and_services_applications_group"
+                            style="display: none;">
                             <h4 for="applications">Applications (Goods and Services)</h4>
                             <div class="checkbox">
                                 <label>
@@ -365,103 +371,112 @@
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="applications" value="others">
+                                    <input type="checkbox" name="applications" value="others" id="checkbox_others_gods_and_services">
                                         Others </input>
                                 </label>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="other_g_s_application_group" style="display: none;">
                                 <label for="other_g_s_application">Other Application</label>
                                 <input type="text" name="other_g_s_application"
-                                    class="form-control" maxlength="120" />
+                                    class="form-control" maxlength="120" required="false"  />
                             </div>
                         </div>
 
 
                         <!-- Si es Evento -->
-                        <div class="row">
-                            <!-- First column -->
-                            <div class="col-md-6">
-                                <!-- Nombre del Evento -->
-                                <div class="form-group">
-                                    <label for="event_name">Event Name</label>
-                                    <input type="text" name="event_name" class="form-control"
-                                        maxlength="120" required="true" />
-                                </div>
+                        <div id="event_info_group"
+                            style="display: none;">
+                            <div class="row">
+                                <!-- First column -->
+                                <div class="col-md-6">
+                                    <!-- Nombre del Evento -->
+                                    <div class="form-group">
+                                        <label for="event_name">Event Name</label>
+                                        <input type="text" name="event_name" class="form-control"
+                                            maxlength="120" required="true" />
+                                    </div>
 
-                                <!-- Duración del Evento -->
-                                <div class="form-group">
-                                    <label for="event_duration">Event Duration</label>
-                                    <input type="time" name="event_duration" class="form-control"
-                                        required="true" />
-                                </div>
+                                    <!-- Duración del Evento -->
+                                    <div class="form-group">
+                                        <label for="event_duration">Event Duration</label>
+                                        <input type="time" name="event_duration"
+                                            class="form-control"
+                                            required="true" />
+                                    </div>
 
-                                <!-- Modalidad del Evento -->
-                                <div class="form-group">
-                                    <label for="event_modality">Event Modality</label>
-                                    <select name="event_modality" class="form-control"
-                                        required="true">
-                                        <option value="onsite">On-site</option>
-                                        <option value="online">Online</option>
-                                        <option value="hybrid">Hybrid</option>
-                                    </select>
-                                </div>
+                                    <!-- Modalidad del Evento -->
+                                    <div class="form-group">
+                                        <label for="event_modality">Event Modality</label>
+                                        <select name="event_modality" class="form-control"
+                                            required="true">
+                                            <option value="onsite">On-site</option>
+                                            <option value="online">Online</option>
+                                            <option value="hybrid">Hybrid</option>
+                                        </select>
+                                    </div>
 
-                                <!-- Sede del Evento -->
-                                <div class="form-group">
-                                    <label for="event_venue">Venue</label>
-                                    <input type="text" name="event_venue" class="form-control"
-                                        maxlength="120" required="true" />
-                                </div>
+                                    <!-- Sede del Evento -->
+                                    <div class="form-group">
+                                        <label for="event_venue">Venue</label>
+                                        <input type="text" name="event_venue" class="form-control"
+                                            maxlength="120" required="true" />
+                                    </div>
 
-                                <!-- Documentación del Evento -->
-                                <div class="form-group mt-1 mb-1">
-                                    <label for="event_documentation">Documentation</label>
-                                    <input type="file" name="event_documentation"
-                                        class="form-control-file"
-                                        required="true" />
+                                    <!-- Documentación del Evento -->
+                                    <div class="form-group mt-1 mb-1">
+                                        <label for="event_documentation">Documentation</label>
+                                        <input type="file" name="event_documentation"
+                                            class="form-control-file"
+                                            required="true" />
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Second column -->
-                            <div class="col-md-6">
-                                <!-- País del Evento -->
-                                <div class="form-group">
-                                    <label for="event_country">Country</label>
-                                    <select name="event_country" class="form-control"
-                                        required="true">
-                                        <!-- Populate dynamically with countries -->
-                                        <t t-foreach="request.env['res.country'].sudo().search([])" t-as="country">
-                                            <option t-att-value="country.id" t-att-selected="country.name == 'Cuba'">
-                                                <t t-esc="country.name"/>
-                                            </option>
-                                        </t>
-                                    </select>
-                                </div>
+                                <!-- Second column -->
+                                <div class="col-md-6">
+                                    <!-- País del Evento -->
+                                    <div class="form-group">
+                                        <label for="event_country">Country</label>
+                                        <select name="event_country" class="form-control"
+                                            required="true">
+                                            <!-- Populate dynamically with countries -->
+                                            <t
+                                                t-foreach="request.env['res.country'].sudo().search([])"
+                                                t-as="country">
+                                                <option t-att-value="country.id"
+                                                    t-att-selected="country.name == 'Cuba'">
+                                                    <t t-esc="country.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
 
-                                <!-- Provincia del Evento -->
-                                <div class="form-group">
-                                    <label for="event_province">Province</label>
-                                    <select name="event_province" class="form-control"
-                                        required="true">
-                                        <!-- Populate dynamically -->
-                                    </select>
-                                </div>
+                                    <!-- Provincia del Evento -->
+                                    <div class="form-group">
+                                        <label for="event_province">Province</label>
+                                        <select name="event_province" class="form-control"
+                                            required="true">
+                                            <!-- Populate dynamically -->
+                                        </select>
+                                    </div>
 
-                                <!-- Municipio del Evento -->
-                                <div class="form-group">
-                                    <label for="event_municipality">Municipality</label>
-                                    <select name="representative_municipality" class="form-control"
-                                        required="true">
-                                        <!-- Populate dynamically -->
-                                    </select>
-                                </div>
+                                    <!-- Municipio del Evento -->
+                                    <div class="form-group">
+                                        <label for="event_municipality">Municipality</label>
+                                        <select name="representative_municipality"
+                                            class="form-control"
+                                            required="true">
+                                            <!-- Populate dynamically -->
+                                        </select>
+                                    </div>
 
-                                <!-- Ámbito -->
-                                <div class="form-group">
-                                    <label for="event_scope">Scope</label>
-                                    <select name="event_scope" class="form-control" required="true">
-                                        <option value="national">National</option>
-                                        <option value="international">International</option>
-                                    </select>
+                                    <!-- Ámbito -->
+                                    <div class="form-group">
+                                        <label for="event_scope">Scope</label>
+                                        <select name="event_scope" class="form-control"
+                                            required="true">
+                                            <option value="national">National</option>
+                                            <option value="international">International</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>

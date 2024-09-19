@@ -56,6 +56,15 @@ odoo.define('df_website_process_ics.process', function (require) {
             toggleField('person_type', 'representation_license_group', ['national_foreign', 'legal_foreign']);
         });
         
+        $('#usage_type').change(function () {
+            toggleField('usage_type', 'organizational_applications_group', ['organizational']);
+        });
+        $('#usage_type').change(function () {
+            toggleField('usage_type', 'gods_and_services_applications_group', ['goods_services']);
+        });
+        $('#usage_type').change(function () {
+            toggleField('usage_type', 'event_info_group', ['events']);
+        });
         ////////////////////////////////////////////////////////////////////
         // Función genérica para MOSTRAR/OCULTAR CAMPOS si se escribe en un input y cambiar el atributo 'required'
         function toggleFieldInput(inputId, targetId) {
@@ -79,11 +88,37 @@ odoo.define('df_website_process_ics.process', function (require) {
             });
         }
         
-        // Asocia el evento `change` al input `cup_account_number`        
+        // Asocia el evento `change` al input         
         toggleFieldInput('cup_account_number', 'cup_bank_branch_group');
         toggleFieldInput('mlc_account_number', 'mlc_account_number_group');
         toggleFieldInput('cc_account_number', 'cc_bank_branch_group');
 
+        //////////////////////////////////////////////////////////////////////////////
+        //Función genérica para MOSTRAR/OCULTAR CAMPOS si se marca un checkbox y cambiar el atributo 'required'
+        function toggleFieldWithCheckbox(checkboxId, targetId) {
+            var checkbox = document.getElementById(checkboxId);
+            var targetGroup = document.getElementById(targetId);
+            var targetInput = targetGroup.querySelector('input, select'); // Busca el input o select dentro del div
+            
+            checkbox.addEventListener('change', function () {
+                if (checkbox.checked) {
+                    targetGroup.style.display = 'block';  // Muestra el campo
+                    if (targetInput) {
+                        targetInput.setAttribute('required', 'true');  // Lo hace requerido
+                    }
+                } else {
+                    targetGroup.style.display = 'none';  // Oculta el campo
+                    if (targetInput) {
+                        targetInput.removeAttribute('required');  // Quita el atributo requerido
+                        targetInput.value = '';  // Elimina el valor del campo oculto para que no se envíe
+                    }
+                }
+            });
+        }
+        
+        // Asocia la función genérica a diferentes checkboxes y campos
+        toggleFieldWithCheckbox('checkbox_others_gods_and_services', 'other_g_s_application_group');
+        toggleFieldWithCheckbox('checkbox_others_organizational', 'other_org_application_group');
 
         $(document).ready(function () {
             $('select[name="representative_province"]').change(function () {
