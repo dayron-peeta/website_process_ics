@@ -228,6 +228,8 @@
                                 </div>
 
                                 <hr class="mt-3 mb-3"></hr>
+                                <button type="button" class="btn btn-primary next-tab"
+                                    data-target="#nav-profile">Siguiente</button>
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                 aria-labelledby="nav-profile-tab">
@@ -322,6 +324,10 @@
                                                 class="form-select"
                                                 required="true">
                                                 <!-- Populate dynamically -->
+                                                <option t-att-value="province.id">
+                                                    <t t-esc="province.name" />
+                                                </option>
+
                                             </select>
                                         </div>
 
@@ -335,6 +341,9 @@
                                 </div>
 
                                 <hr class="mt-3 mb-3"></hr>
+
+                                <button type="button" class="btn btn-primary next-tab"
+                                    data-target="#nav-contact">Siguiente</button>
                             </div>
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel"
                                 aria-labelledby="nav-contact-tab">

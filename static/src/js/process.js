@@ -120,6 +120,62 @@ odoo.define('df_website_process_ics.process', function (require) {
         toggleFieldWithCheckbox('checkbox_others_gods_and_services', 'other_g_s_application_group');
         toggleFieldWithCheckbox('checkbox_others_organizational', 'other_org_application_group');
 
+        ///////////////////////////////////////////////////////////////
+        //validar los campos antes de cambiar de pestaña por botón siguiente:
+        document.querySelectorAll('.next-tab').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var currentTab = document.querySelector('.tab-pane.active');
+                var inputs = currentTab.querySelectorAll('input, select');
+                var valid = true;
+        
+                // Validar campos requeridos en la pestaña activa
+                inputs.forEach(function(input) {
+                    if (input.required && !input.value) {
+                        valid = false;
+                        input.classList.add('is-invalid'); // Agrega clase de Bootstrap para error
+                    } else {
+                        input.classList.remove('is-invalid'); // Quita clase de error si está correcto
+                    }
+                });
+        
+                if (valid) {
+                    // Cambia a la siguiente pestaña
+                    var targetTab = button.getAttribute('data-target');
+                    var tabPanes = document.querySelectorAll('.tab-pane');
+                    tabPanes.forEach(function(tab) {
+                        tab.classList.remove('show', 'active');
+                    });
+                    document.querySelector(targetTab).classList.add('show', 'active');
+                }
+            });
+        });
+
+        ////////////////////////////////////////////////////////////////////////////////////
+        //valide los campos antes de cambiar de pestaña al hacer click
+        document.querySelectorAll('.nav-link').forEach(function(tab) {
+            tab.addEventListener('click', function(event) {
+                var currentTab = document.querySelector('.tab-pane.active');
+                var inputs = currentTab.querySelectorAll('input, select');
+                var valid = true;
+        
+                // Validar campos requeridos en la pestaña activa
+                inputs.forEach(function(input) {
+                    if (input.required && !input.value) {
+                        valid = false;
+                        input.classList.add('is-invalid'); // Agrega clase de Bootstrap para error
+                    } else {
+                        input.classList.remove('is-invalid'); // Quita clase de error si está correcto
+                    }
+                });
+        
+                if (!valid) {
+                    event.preventDefault(); // Previene el cambio de pestaña si no es válido
+                }
+            });
+        });
+        
+
+        ////////////////////////////////////////////////////////////////////////////////////
         $(document).ready(function () {
             $('select[name="representative_province"]').change(function () {
                 var province_id = $(this).val();
