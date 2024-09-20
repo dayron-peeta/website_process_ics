@@ -55,7 +55,7 @@ odoo.define('df_website_process_ics.process', function (require) {
         $('#person_type').change(function () {
             toggleField('person_type', 'representation_license_group', ['national_foreign', 'legal_foreign']);
         });
-        
+
         $('#usage_type').change(function () {
             toggleField('usage_type', 'organizational_applications_group', ['organizational']);
         });
@@ -71,7 +71,7 @@ odoo.define('df_website_process_ics.process', function (require) {
             var inputField = document.getElementById(inputId);
             var targetGroup = document.getElementById(targetId);
             var targetInput = targetGroup.querySelector('input, select'); // Busca el input o select dentro del div
-        
+
             inputField.addEventListener('input', function () {
                 if (inputField.value.trim() !== '') {  // Verifica si el campo no está vacío
                     targetGroup.style.display = 'block';  // Muestra el campo
@@ -87,7 +87,7 @@ odoo.define('df_website_process_ics.process', function (require) {
                 }
             });
         }
-        
+
         // Asocia el evento `change` al input         
         toggleFieldInput('cup_account_number', 'cup_bank_branch_group');
         toggleFieldInput('mlc_account_number', 'mlc_account_number_group');
@@ -99,7 +99,7 @@ odoo.define('df_website_process_ics.process', function (require) {
             var checkbox = document.getElementById(checkboxId);
             var targetGroup = document.getElementById(targetId);
             var targetInput = targetGroup.querySelector('input, select'); // Busca el input o select dentro del div
-            
+
             checkbox.addEventListener('change', function () {
                 if (checkbox.checked) {
                     targetGroup.style.display = 'block';  // Muestra el campo
@@ -115,21 +115,40 @@ odoo.define('df_website_process_ics.process', function (require) {
                 }
             });
         }
-        
+
         // Asocia la función genérica a diferentes checkboxes y campos
         toggleFieldWithCheckbox('checkbox_others_gods_and_services', 'other_g_s_application_group');
         toggleFieldWithCheckbox('checkbox_others_organizational', 'other_org_application_group');
 
-        ///////////////////////////////////////////////////////////////
-        //validar los campos antes de cambiar de pestaña por botón siguiente:
-        document.querySelectorAll('.next-tab').forEach(function(button) {
-            button.addEventListener('click', function() {
-                var currentTab = document.querySelector('.tab-pane.active');
-                var inputs = currentTab.querySelectorAll('input, select');
-                var valid = true;
-        
+
+        //botones Next and Previous//////////////////////////////////////////////////////////////////////////////////////////////
+        const nextButtons = document.querySelectorAll('.next-tab');
+        const prevButtons = document.querySelectorAll('.prev-tab');
+
+        // Función para ocultar todas las pestañas
+        function hideAllTabs() {
+            const tabs = document.querySelectorAll('.tab-pane');
+            tabs.forEach(tab => {
+                tab.classList.remove('show', 'active', 'fade');
+            });
+        }
+
+        // Función para mostrar una pestaña específica
+        function showTab(target) {
+            hideAllTabs();
+            const tab = document.querySelector(target);
+            tab.classList.add('show', 'active', 'fade');
+        }
+
+        // Manejo del botón "Siguiente"
+        nextButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const currentTab = button.closest('.tab-pane');
+                const inputs = currentTab.querySelectorAll('input, select'); // Selecciona todos los inputs y selects
+                let valid = true;
+
                 // Validar campos requeridos en la pestaña activa
-                inputs.forEach(function(input) {
+                inputs.forEach(function (input) {
                     if (input.required && !input.value) {
                         valid = false;
                         input.classList.add('is-invalid'); // Agrega clase de Bootstrap para error
@@ -137,43 +156,34 @@ odoo.define('df_website_process_ics.process', function (require) {
                         input.classList.remove('is-invalid'); // Quita clase de error si está correcto
                     }
                 });
-        
+
+                // Si todos los campos son válidos, mostrar la siguiente pestaña
                 if (valid) {
-                    // Cambia a la siguiente pestaña
-                    var targetTab = button.getAttribute('data-target');
-                    var tabPanes = document.querySelectorAll('.tab-pane');
-                    tabPanes.forEach(function(tab) {
-                        tab.classList.remove('show', 'active');
+                    showTab(button.getAttribute('data-target'));
+                } else {
+                    // Muestra errores de validación
+                    inputs.forEach(input => {
+                        if (input.required && !input.value) {
+                            input.classList.add('is-invalid'); // Resalta el campo inválido
+                        }
                     });
-                    document.querySelector(targetTab).classList.add('show', 'active');
                 }
             });
         });
 
-        ////////////////////////////////////////////////////////////////////////////////////
-        //valide los campos antes de cambiar de pestaña al hacer click
-        document.querySelectorAll('.nav-link').forEach(function(tab) {
-            tab.addEventListener('click', function(event) {
-                var currentTab = document.querySelector('.tab-pane.active');
-                var inputs = currentTab.querySelectorAll('input, select');
-                var valid = true;
-        
-                // Validar campos requeridos en la pestaña activa
-                inputs.forEach(function(input) {
-                    if (input.required && !input.value) {
-                        valid = false;
-                        input.classList.add('is-invalid'); // Agrega clase de Bootstrap para error
-                    } else {
-                        input.classList.remove('is-invalid'); // Quita clase de error si está correcto
-                    }
-                });
-        
-                if (!valid) {
-                    event.preventDefault(); // Previene el cambio de pestaña si no es válido
-                }
+        // Manejo del botón "Atrás"
+        prevButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                showTab(button.getAttribute('data-target'));
             });
         });
-        
+
+        // Inicializa la primera pestaña visible
+        showTab('#nav-application');
+
+
+
+
 
         ////////////////////////////////////////////////////////////////////////////////////
         $(document).ready(function () {
