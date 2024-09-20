@@ -371,6 +371,7 @@
                                         <option value="events">Events</option>
                                     </select>
                                 </div>
+                                <br class='mt-3 mb-3'></br>
 
                                 <!-- Aplicaciones -->
                                 <!-- Si es para uso organizacional -->
@@ -572,9 +573,9 @@
 
 
                                 <!-- Botón de Enviar -->
-                                <button type="button" class="btn btn-secondary prev-tab mt-4 mb-5"
+                                <button type="button"  class="btn btn-secondary prev-tab mt-4 mb-5"
                                     style="float: left;" data-target="#nav-representative">Previous</button>
-                                <button type="submit" class="btn btn-primary mt-4 mb-5"
+                                <button type="submit" id='submit-button' class="btn btn-primary mt-4 mb-5"
                                     style="float: right;">
                                     Submit Application</button>
                             </div>

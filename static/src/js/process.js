@@ -122,6 +122,26 @@ odoo.define('df_website_process_ics.process', function (require) {
 
 
         //botones Next and Previous//////////////////////////////////////////////////////////////////////////////////////////////
+        //// Validar campos requeridos en la pestaña activa
+        // Función para validar campos requeridos en la pestaña activa
+        function validateRequiredFields() {
+            const activeTab = document.querySelector('.tab-pane.show'); // Obtiene la pestaña activa
+            const inputs = activeTab.querySelectorAll('input, select'); // Selecciona todos los inputs y selects
+            let valid = true;
+
+            // Validar campos requeridos
+            inputs.forEach(function (input) {
+                if (input.required && !input.value) {
+                    valid = false;
+                    input.classList.add('is-invalid'); // Agrega clase de Bootstrap para error
+                } else {
+                    input.classList.remove('is-invalid'); // Quita clase de error si está correcto
+                }
+            });
+
+            return valid; // Retorna si los campos son válidos o no
+        }
+
         const nextButtons = document.querySelectorAll('.next-tab');
         const prevButtons = document.querySelectorAll('.prev-tab');
 
@@ -143,30 +163,8 @@ odoo.define('df_website_process_ics.process', function (require) {
         // Manejo del botón "Siguiente"
         nextButtons.forEach(button => {
             button.addEventListener('click', function () {
-                const currentTab = button.closest('.tab-pane');
-                const inputs = currentTab.querySelectorAll('input, select'); // Selecciona todos los inputs y selects
-                let valid = true;
-
-                // Validar campos requeridos en la pestaña activa
-                inputs.forEach(function (input) {
-                    if (input.required && !input.value) {
-                        valid = false;
-                        input.classList.add('is-invalid'); // Agrega clase de Bootstrap para error
-                    } else {
-                        input.classList.remove('is-invalid'); // Quita clase de error si está correcto
-                    }
-                });
-
-                // Si todos los campos son válidos, mostrar la siguiente pestaña
-                if (valid) {
+                if (validateRequiredFields()) {
                     showTab(button.getAttribute('data-target'));
-                } else {
-                    // Muestra errores de validación
-                    inputs.forEach(input => {
-                        if (input.required && !input.value) {
-                            input.classList.add('is-invalid'); // Resalta el campo inválido
-                        }
-                    });
                 }
             });
         });
@@ -177,6 +175,14 @@ odoo.define('df_website_process_ics.process', function (require) {
                 showTab(button.getAttribute('data-target'));
             });
         });
+
+        // Manejo del botón "Enviar Solicitud"
+        document.getElementById('submit-button').addEventListener('click', function () {
+            if (validateRequiredFields()) {
+                document.querySelector('form').submit(); // Envía el formulario
+            }
+        });
+
 
         // Inicializa la primera pestaña visible
         showTab('#nav-application');
