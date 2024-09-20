@@ -8,7 +8,7 @@
                     <form action="/process/country_brand/application_submit" method="post"
                         enctype="multipart/form-data" class="form-horizontal">
                         <!-- <t t-call="website.csrf_token"/> -->
-                        <nav>
+                        <nav class='mb-2'>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 <button class="nav-link active" id="nav-application-tab"
                                     data-bs-target="#nav-application"
@@ -545,6 +545,7 @@
                                                 <select name="event_province" class="form-select"
                                                     required="true">
                                                     <!-- Populate dynamically -->
+                                                    <option value="a">A</option>
                                                 </select>
                                             </div>
 
@@ -555,6 +556,7 @@
                                                     class="form-select"
                                                     required="true">
                                                     <!-- Populate dynamically -->
+                                                    <option value="a">A</option>
                                                 </select>
                                             </div>
 
@@ -575,7 +577,7 @@
                                 <!-- Botón de Enviar -->
                                 <button type="button"  class="btn btn-secondary prev-tab mt-4 mb-5"
                                     style="float: left;" data-target="#nav-representative">Previous</button>
-                                <button type="submit" id='submit-button' class="btn btn-primary mt-4 mb-5"
+                                <button type="button" id='submit-button' class="btn btn-primary mt-4 mb-5"
                                     style="float: right;">
                                     Submit Application</button>
                             </div>

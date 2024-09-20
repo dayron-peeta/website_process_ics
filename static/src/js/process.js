@@ -121,8 +121,7 @@ odoo.define('df_website_process_ics.process', function (require) {
         toggleFieldWithCheckbox('checkbox_others_organizational', 'other_org_application_group');
 
 
-        //botones Next and Previous//////////////////////////////////////////////////////////////////////////////////////////////
-        //// Validar campos requeridos en la pestaña activa
+        //botones Next, Previous and Submit//////////////////////////////////////////////////////////////////////////////////////////////
         // Función para validar campos requeridos en la pestaña activa
         function validateRequiredFields() {
             const activeTab = document.querySelector('.tab-pane.show'); // Obtiene la pestaña activa
@@ -153,11 +152,21 @@ odoo.define('df_website_process_ics.process', function (require) {
             });
         }
 
-        // Función para mostrar una pestaña específica
+        // Función para mostrar una pestaña específica y actualizar el estado de las pestañas
         function showTab(target) {
             hideAllTabs();
             const tab = document.querySelector(target);
             tab.classList.add('show', 'active', 'fade');
+
+            // Cambia el estado de las pestañas
+            const tabs = document.querySelectorAll('.nav-link');
+            tabs.forEach(t => {
+                if (t.getAttribute('data-bs-target') === target) {
+                    t.classList.add('active'); // Agrega la clase 'active' a la pestaña actual
+                } else {
+                    t.classList.remove('active'); // Quita la clase 'active' de las demás pestañas
+                }
+            });
         }
 
         // Manejo del botón "Siguiente"
@@ -179,10 +188,10 @@ odoo.define('df_website_process_ics.process', function (require) {
         // Manejo del botón "Enviar Solicitud"
         document.getElementById('submit-button').addEventListener('click', function () {
             if (validateRequiredFields()) {
+                console.log('TODOS LOS DATOS VALIDADOS')
                 document.querySelector('form').submit(); // Envía el formulario
             }
         });
-
 
         // Inicializa la primera pestaña visible
         showTab('#nav-application');
