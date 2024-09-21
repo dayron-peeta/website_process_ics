@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="df_management_process_ics.type_process_country_brand" model="df_management_process.type.process">
+            <field name="view_id" ref="df_website_process_ics.view_df_process_country_brand"/>
+        </record>
+
+        <record id="df_management_process_ics.type_process_serial_publication"
+                model="df_management_process.type.process">
+            <field name="view_id" ref="df_website_process_ics.view_df_process_serial_publication"/>
+        </record>
+
+        <record id="df_management_process_ics.type_process_website" model="df_management_process.type.process">
+            <field name="view_id" ref="df_website_process_ics.view_df_process_website"/>
+        </record>
+
+    </data>
+</odoo>

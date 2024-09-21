@@ -21,11 +21,13 @@
         'website',
         # DESOFT
         'df_website_process',
+        'df_management_process_ics',
     ],
     
     'assets': {
         'web.assets_frontend': [
             'df_website_process_ics/static/src/js/process.js',
+            'df_website_process_ics/static/src/js/serial_publication_or_web_site_form.js',
         ],
     },
 
@@ -35,7 +37,10 @@
         'views/website_form_country_brand_templates.xml',
         'views/website_form_serial_publication_templates.xml',
         'views/website_form_website_templates.xml',
+        # data
+        'data/df_management_process_type_process_data.xml',
     ],
+    
     'installable': True,
     'application': True,
 }

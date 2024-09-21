@@ -1,10 +1,704 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="process_publication" name="Process Publication">
+
+    <template id="view_df_process_serial_publication" name="Process Serial Publication">
         <t t-call="website.layout">
-            <div class="container">
-                <h1>Process Publication</h1>
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <h1 class="mt-4 mb-2">Registration of Serial Publication</h1>
+                        <form action="/process/serial_publication/submit" method="post"
+                        enctype="multipart/form-data" class="form-horizontal">
+
+                            <t t-call="df_website_process_ics.partner_data"/>
+
+                            <!-- Datos de la publicación seriada -->
+                            <div id="serial_publication_data">
+                                <h3>Serial Publication Data</h3>
+
+                                <div class="form-group row">
+
+                                    <!-- Tipo de Publicación -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="publication_type">
+                                            Publication Type
+                                        </label>
+                                        <select id="publication_type" class="form-control form-control-sm" name="publication_type" required="required">
+                                            <option value="">Select...</option>
+                                            <option value="printed">Printed</option>
+                                            <option value="digital">Digital</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Título de la Publicación -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="publication_title">
+                                            Publication Title
+                                        </label>
+                                        <input type="text"
+                                                id="publication_title"
+                                                name="publication_title"
+                                                class="form-control form-control-sm"
+                                                required="required" maxlength="250"/>
+                                    </div>
+
+                                    <!-- Fecha de Creación -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="created_date">
+                                            Creation Date
+                                        </label>
+                                        <input type="date"
+                                                id="created_date"
+                                                name="created_date"
+                                                class="form-control form-control-sm"
+                                                required="required"/>
+                                    </div>
+
+                                    <!-- Director de la Publicación -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="publication_director">
+                                            Director of the Publication
+                                        </label>
+                                        <input type="text"
+                                                id="publication_director"
+                                                name="publication_director"
+                                                class="form-control form-control-sm"
+                                                required="required" maxlength="50"/>
+                                    </div>
+
+                                    <!-- Dirección de la Sede de la Publicación -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="address_publication">
+                                            Address of the Publication Headquarters
+                                        </label>
+                                        <input type="text"
+                                                id="address_publication"
+                                                name="address_publication"
+                                                class="form-control form-control-sm"
+                                                required="required" maxlength="120"/>
+                                    </div>
+
+                                    <!-- Teléfono -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="publication_phone">
+                                            Phone
+                                        </label>
+                                        <input type="text"
+                                                id="publication_phone"
+                                                name="publication_phone"
+                                                class="form-control form-control-sm" maxlength="15"/>
+                                    </div>
+
+                                    <!-- Correo Electrónico -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="publication_email">
+                                            Email
+                                        </label>
+                                        <input type="email"
+                                                id="publication_email"
+                                                name="publication_email"
+                                                class="form-control form-control-sm"/>
+                                    </div>
+
+
+                                    <!-- Idioma Principal -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="principal_language">
+                                            Main Language
+                                        </label>
+                                        <select id="principal_language" class="form-control form-control-sm" name="principal_language" required="required">
+                                            <option value="">Select...</option>
+                                            <!-- Opciones de idiomas -->
+                                        </select>
+                                    </div>
+
+
+                                    <!-- Otro(s) Idiomas -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="others_language">
+                                            Other(s) Language
+                                        </label>
+                                        <input type="text"
+                                                id="others_language"
+                                                name="others_language"
+                                                class="form-control form-control-sm" maxlength="120"/>
+                                    </div>
+
+
+                                </div>
+
+
+                                <!-- Características técnicas de la publicación seriada -->
+                                <h3>Technical Characteristics of the Serial Publication</h3>
+
+                                <div class="form-group row">
+
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="frecuency">
+                                            Frecuency
+                                        </label>
+                                        <select id="frecuency" class="form-control form-control-sm" name="frecuency" required="required">
+                                            <option value="">Select...</option>
+                                            <option value="periodic">Periodic</option>
+                                            <option value="irregular">Irregular</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="cant_number_x_year">
+                                            Number of Publications per Year
+                                        </label>
+                                        <input type="number"
+                                            id="cant_number_x_year"
+                                            name="cant_number_x_year"
+                                            class="form-control form-control-sm" required="required"/>
+                                    </div>
+
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="public_to_address">
+                                            Target audience
+                                        </label>
+                                        <select id="public_to_address" class="form-control form-control-sm" name="public_to_address" required="required">
+                                            <option value="">Select...</option>
+                                            <option value="specialist">Specialists and Workers of the Branch</option>
+                                            <option value="general_publication">General Population</option>
+                                            <option value="children_and_youngs">Children and/or Young People</option>
+                                            <option value="others">Others</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3 pt-2 col-md-4" style="display:none;" id="throw_container">
+                                        <label for="tirada">
+                                            Throw
+                                        </label>
+                                        <input type="number" id="rolled_x_number" name="rolled_x_number" class="form-control form-control-sm mb-1" placeholder="By number" required="required"/>
+                                        <input type="number" id="rolled_x_year" name="rolled_x_year" class="form-control form-control-sm" placeholder="By year"/>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3 pt-2" style="display:none;" id="printed_place_container">
+                                        <label>Place where it is printed</label><br/>
+                                        <input type="text" id="printed_place_text" name="printed_place_text" class="form-control form-control-sm" maxlength="120" placeholder="Lugar de Impresión"/>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3 pt-2" style="display:none;" id="traffic_container">
+                                        <label>Traffic routes</label><br/>
+                                        <select multiple="multiple" id="traffic_routes_text" class="form-control form-control-sm" name="traffic_routes_text[]">
+                                            <option value="national">National</option>
+                                            <option value="international">International</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3 pt-2" style="display:none;" id="exchange_container">
+                                        <label>Exchange</label><br/>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="exchange" id="exchange_yes" value="yes"/>
+                                            <label class="form-check-label" for="exchange_yes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="exchange" id="exchange_no" value="no"/>
+                                            <label class="form-check-label" for="exchange_no">No</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3 pt-2" style="display:none;" id="consult_online_container">
+                                        <div class="mb-1">
+                                            <label>It can be consulted online?</label><br/>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="consult_online" id="consult_yes" value="yes"/>
+                                                <label class="form-check-label" for="consult_yes">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="consult_online" id="consult_no" value="no"/>
+                                                <label class="form-check-label" for="consult_no">No</label>
+                                            </div>
+                                        </div>
+                                        <div id="url_container" style="display:none;">
+                                            <input type="text" id="url" name="url" class="form-control form-control-sm" maxlength="120" placeholder="URL"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3 pt-2" style="display:none;" id="digital_traffic_routes_container">
+                                        <label>Traffic routes</label><br/>
+                                        <select multiple="multiple" id="digital_traffic_routes_text" class="form-control form-control-sm" name="digital_traffic_routes_text">
+                                            <option value="email">Email</option>
+                                            <option value="pdf">PDF</option>
+                                            <option value="web_site">Web Site</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="col-md-4 mb-3 pt-2" >
+                                        <label for="distribution">If it is a non-commercial publication, how is distribution carried out?</label>
+                                        <input type="text" id="distribution" name="distribution" class="form-control form-control-sm" maxlength="120" />
+                                    </div>
+
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label>Request Letter</label>
+                                        <input type="file" id="request_letter" name="request_letter" class="form-control form-control-sm" accept=".doc,.docx,.pdf,.odt,.jpg,.jpeg,.png,.gif,.webp,.tiff,.bmp"/>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label>Record</label>
+                                        <input type="file" id="record" name="record" class="form-control form-control-sm" accept=".doc,.docx,.pdf,.odt,.rar,.zip,.jpg,.jpeg,.png,.gif,.webp,.tiff,.bmp"/>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Botones de acción -->
+                            <div class="clearfix oe_login_bottons mb-3">
+                                <button type="submit" name="action_submit" class="btn btn-primary pull-left">Submit</button>
+                                <button class="btn btn-secondary pull-left" special="cancel">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
+
+            <script src="/df_website_process_ics/static/src/js/serial_publication_or_web_site_form.js"></script>
+            
         </t>
+
+    </template>
+
+    <template id="view_web_site_form" name="Web Site Form">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <h1 class="mt-4 mb-2">Registration of Website</h1>
+                        <form action="/process/web_site/submit" method="post"
+                        enctype="multipart/form-data" class="form-horizontal">
+
+                            <t t-call="df_website_process_ics.partner_data"/>
+
+                            <!-- Datos del sitio web -->
+                            <div id="web_site_data">
+                                <h3>Web Site Data</h3>
+
+                                <div class="form-group row" >
+    
+                                    <!-- Título del Sitio -->
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label for="site_title">Web Site Title</label>
+                                        <input type="text" id="site_title" name="site_title" class="form-control form-control-sm" maxlength="120" required="required"/>
+                                    </div>
+    
+                                    <!-- Sitio alojado en -->
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label for="hosted_site">Site hosted (Host) in:</label>
+                                        <input type="text" id="hosted_site" name="hosted_site" class="form-control form-control-sm" placeholder="example: www.example.com" />
+                                    </div>
+    
+                                    <!-- URL (incluir alias) -->
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label for="url" >URL (include aliases)</label>
+                                        <input type="text" id="url" name="url" class="form-control form-control-sm" placeholder="http://www.example.com/pagina" />
+                                    </div>
+    
+                                     <!-- Posee espejos -->
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label >Does it have mirrors?</label><br/>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="has_mirror" id="mirror_yes" value="yes" required="required" />
+                                            <label class="form-check-label" for="mirror_yes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="has_mirror" id="mirror_no" value="no" />
+                                            <label class="form-check-label" for="mirror_no">No</label>
+                                        </div>
+
+                                        <!-- En caso de seleccionar Sí en la pregunta anterior. -->
+                                        <div style="display:none;" id="has_mirror_container">
+                                        
+                                            <!-- Es copia fiel -->
+                                            <label>Is it a faithful copy?</label><br/>     
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="full_copy" id="full_copy_yes" value="yes" required="required" />
+                                                <label class="form-check-label" for="full_copy_yes">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="full_copy" id="full_copy_no" value="no" />
+                                                <label class="form-check-label" for="full_copy_no">No</label>
+                                            </div>   
+        
+                                            <!-- Anexar cambios -->
+                                            <div style="display:none;" id="append_changes_container">
+                                                <label for="changes">Append changes</label>
+                                                <input type="file" id="changes" name="changes" class="form-control form-control-sm" accept=".doc,.docx,.pdf,.odt" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+    
+                                    <!-- Si el sitio es una publicación seriada -->
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label>Is the website a serial publication?</label><br/>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="is_serial_publication" id="serial_publication_yes" value="yes" required="required" />
+                                            <label class="form-check-label" for="serial_publication_yes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="is_serial_publication" id="serial_publication_no" value="no" />
+                                            <label class="form-check-label" for="serial_publication_no">No</label>
+                                        </div>
+    
+                                        <!-- Número de RNPS -->
+                                        <div style="display:none;" id="rnps_container">
+                                            <label for="rnps_number">Number of RNPS</label>
+                                            <input type="text" id="rnps_number" name="rnps_number" class="form-control form-control-sm" required="required" />
+                                        </div>
+                                    </div>
+    
+    
+                                    <!-- ¿El sitio posee una o más publicaciones seriadas? -->
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label>Does the site have one or more serial publications?</label>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="has_serial_publication" id="has_serial_publication_yes" value="yes" required="required" />
+                                            <label class="form-check-label" for="has_serial_publication_yes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="has_serial_publication" id="has_serial_publication_no" value="no" />
+                                            <label class="form-check-label" for="has_serial_publication_no">No</label>
+                                        </div>
+    
+                                        <!-- Números de RNPS -->
+                                        <div style="display:none;" id="rpns_numbers_container">
+                                            <label for="rnps_numbers">Number(s) of RNPS</label>
+                                            <input type="text" id="rnps_numbers" name="rnps_numbers" class="form-control form-control-sm" required="required" />
+                                        </div>
+                                    </div>
+    
+                                    <!-- Fecha de creación -->
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label for="site_created_date" >Creation date</label>
+                                        <input type="date" id="site_created_date" name="site_created_date" class="form-control form-control-sm" required="required" />
+                                    </div>
+    
+    
+                                    <!-- Período de actualización -->
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label for="updated_period" >Update period</label>
+                                        <input type="text" id="updated_period" name="updated_period" class="form-control form-control-sm" required="required" />
+                                    </div>
+    
+                                    <!-- Dirección de la sede del Sitio web -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="direccion_sede" >Website headquarters address</label>
+                                        <input type="text" id="direccion_sede" name="direccion_sede" class="form-control form-control-sm" maxlength="120" required="required" />
+                                    </div>
+    
+                                    <t t-set="prefix" t-value="'site'"/>
+                                    <t t-call="df_website_process_ics.personal_data"/>
+    
+                                    <!-- Webmaster -->
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label for="webmaster" >Webmaster</label>
+                                        <input type="text" id="webmaster" name="webmaster" class="form-control form-control-sm" maxlength="120" />
+                                    </div>
+
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="webmaster_phone">
+                                            Webmaster Phone
+                                        </label>
+                                        <input type="text"
+                                            id="webmaster_phone"
+                                            name="webmaster_phone"
+                                            class="form-control form-control-sm"
+                                            required="required" maxlength="15"/>
+                                    </div>
+                            
+                                    <!-- Correo Electrónico -->      
+                                    <div class="mb-3 field-test pt-2 col-md-4">
+                                        <label for="webmaster_email">
+                                            Webmaster Email
+                                        </label>
+                                        <input type="email"
+                                            id="webmaster_email"
+                                            name="webmaster_email"
+                                            class="form-control form-control-sm"
+                                            required="required"/>
+                                    </div>  
+    
+                                    <!-- Generador de contenido -->
+                                    <div class="col-md-4 mb-3 pt-2">
+                                        <label for="content_generator" >Content generator</label>
+                                        <input type="text" id="content_generator" name="content_generator" class="form-control form-control-sm" maxlength="120" />
+                                    </div>
+
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="content_generator_phone">
+                                            Content Generator Phone
+                                        </label>
+                                        <input type="text"
+                                            id="content_generator_phone"
+                                            name="content_generator_phone"
+                                            class="form-control form-control-sm"
+                                            required="required" maxlength="15"/>
+                                    </div>
+                            
+                                    <!-- Correo Electrónico -->      
+                                    <div class="mb-3 field-test pt-2 col-md-4">
+                                        <label for="content_generator_email">
+                                            Content Generator Email
+                                        </label>
+                                        <input type="email"
+                                            id="content_generator_email"
+                                            name="content_generator_email"
+                                            class="form-control form-control-sm"
+                                            required="required"/>
+                                    </div>  
+    
+                                    <!-- Idioma Principal -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="site_principal_language">
+                                            Main Language
+                                        </label>
+                                        <select id="site_principal_language" class="form-control form-control-sm" name="site_principal_language" required="required">
+                                            <option value="">Select...</option>
+                                            <!-- Opciones de idiomas -->
+                                        </select>
+                                    </div>
+                                    
+            
+                                    <!-- Otro(s) Idiomas -->
+                                    <div class="mb-3 pt-2 col-md-4">
+                                        <label for="site_others_language">
+                                            Other(s) Language
+                                        </label>
+                                        <input type="text"
+                                                id="site_others_language"
+                                                name="site_others_language"
+                                                class="form-control form-control-sm" maxlength="120"/>
+                                    </div>
+    
+                                </div>
+
+                            </div>
+                            
+                            <!-- Botones de acción -->
+                            <div class="clearfix oe_login_bottons mb-3">
+                                <button type="submit" name="action_submit" class="btn btn-primary pull-left">Submit</button>
+                                <button class="btn btn-secondary pull-left" special="cancel">Cancel</button>
+                            </div>    
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <script src="/df_website_process_ics/static/src/js/serial_publication_or_web_site_form.js"></script>
+            
+        </t>
+
+    </template>
+
+    <template id="partner_data">
+        <div class="form-group row">
+
+            <!-- Datos del titular -->
+            <h3 class="pt-2">Owner's Data</h3>
+
+            <!-- Tipo de Persona -->
+            <div class="mb-3 pt-2 col-md-4">
+                <label for="person_type">
+                    Person Type
+                </label>
+                <select id="person_type" class="form-control form-control-sm" name="person_type" required="required">
+                    <option value="">Select...</option>
+                    <option value="national_cuban">National Cuban</option>
+                    <option value="national_foreign">National Foreign</option>
+                    <option value="legal_cuban">Legal Cuban</option>
+                    <option value="legal_foreign">Legal Foreign</option>
+                </select>
+            </div>
+
+            <!-- Tipo de Entidad -->
+            <div class="mb-3 pt-2 col-md-4" style="display:none;" id="entity_type_container">
+                <label for="entity_type">
+                    Entity Type
+                </label>
+                <select id="entity_type" class="form-control form-control-sm" name="entity_type" required="required">
+                    <option value="">Select...</option>
+                    <option value="state">State</option>
+                    <option value="private">Private</option>
+                    <option value="mixed">Mixed</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+
+
+
+            <!-- Nombre Completo / Denominación Oficial -->
+            <div class="mb-3 pt-2 col-md-4">
+                <label for="full_name">
+                    Full Name / Official Denomination
+                </label>
+                <input type="text"
+                       id="full_name"
+                       name="full_name"
+                       class="form-control form-control-sm"
+                       required="required" maxlength="120"/>
+            </div>
+
+            <t t-set="prefix" t-value="'owner'"/>
+            <t t-call="df_website_process_ics.personal_data"/>
+            
+
+            <!-- Antes Inscrito -->
+             <div class="mb-3 mt-4 pt-2 col-md-4">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="previously_registered" name="previously_registered"/>
+                    <label class="form-check-label" for="previously_registered">Previously Registered</label>
+                </div>
+             </div>
+
+
+            <!-- Posee Representante Legal -->
+             <div class="mb-3 mt-4 pt-2 col-md-4">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="has_legal_representative" name="has_legal_representative"/>
+                    <label class="form-check-label" for="has_legal_representative">Has Legal Representative</label>
+                </div>
+             </div>
+
+        
+        
+        </div>
+    
+        <!-- Datos del Representante Legal -->
+        <div id="legal_representative_data" style="display:none;">
+
+            <h3>Legal Representative Data</h3>
+
+            <div class="form-group row">
+
+                <!-- Nombre Completo -->
+                <div class="mb-3 pt-2 col-md-4">
+                    <label for="legal_representative_full_name">
+                        Full Name
+                    </label>
+                    <input type="text"
+                           id="legal_representative_full_name"
+                           name="legal_representative_full_name"
+                           class="form-control form-control-sm"
+                           required="required" maxlength="120"/>
+                </div>
+
+                <!-- CI/REUP/NIT/Pasaporte -->
+                <div class="mb-3 pt-2 col-md-4">
+                    <label for="ci_reup_nit_passport">
+                        CI/REUP/NIT/Passport
+                    </label>
+                    <input type="text"
+                           id="ci_reup_nit_passport"
+                           name="ci_reup_nit_passport"
+                           class="form-control form-control-sm"
+                           required="required" maxlength="12"/>
+                </div>
+
+                <t t-set="prefix" t-value="'legal_representative'"/>
+                <t t-call="df_website_process_ics.personal_data" />
+                
+                <!-- Aval de representación legal -->
+                <div class="mb-3 pt-2 col-md-4">
+                    <label for="guarantee_legal_representation">
+                        Legal Representation Guarantee
+                    </label>
+                    <input type="file"
+                            id="guarantee_legal_representation"
+                            name="guarantee_legal_representation"
+                            class="form-control form-control-sm"
+                            required="required" accept=".doc,.docx,.pdf,.odt,.jpg,.jpeg,.png,.gif,.webp,.tiff,.bmp"/>
+                </div>
+
+            </div>
+
+        </div>
+    </template>
+   
+
+    <template id="personal_data">
+        <div class="mb-3 pt-2 col-md-4">
+            <label for="${prefix}_phone">
+                Phone
+            </label>
+            <input type="text"
+                id="${prefix}_phone"
+                name="${prefix}_phone"
+                class="form-control form-control-sm"
+                required="required" maxlength="15"/>
+        </div>
+
+        <!-- Correo Electrónico -->      
+        <div class="mb-3 field-test pt-2 col-md-4">
+            <label for="${prefix}_email">
+                Email
+            </label>
+            <input type="email"
+                id="${prefix}_email"
+                name="${prefix}_email"
+                class="form-control form-control-sm"
+                required="required"/>
+        </div>  
+        
+        <!-- País -->
+        <div class="mb-3 field-test pt-2 col-md-4">
+            <label for="${prefix}_country">
+                Country
+            </label>
+            <select id="${prefix}_country" class="form-control form-control-sm" name="${prefix}_country" required="required">
+                <option value="">Select...</option>
+                <option value="spain">Spain</option>
+                <!-- Opciones de países -->
+            </select>
+        </div>
+        
+        <!-- Provincia -->
+        <div class="mb-3 field-test pt-2 col-md-4">
+            <label for="${prefix}_province">
+                Province/State
+            </label>
+            <select id="${prefix}_province" class="form-control form-control-sm" name="${prefix}_province" required="required">
+                <option value="">Select...</option>
+                <!-- Opciones de provincias -->
+            </select>
+        </div>
+    
+        <!-- Municipio -->
+        <div class="mb-3 field-test pt-2 col-md-4">
+            <label for="${prefix}_municipality">
+                Municipality
+            </label>
+            <select id="${prefix}_municipality" class="form-control form-control-sm" name="${prefix}_municipality" required="required">
+                <option value="">Select...</option>
+                <!-- Opciones de municipios -->
+            </select>
+        </div>
+
+        
+        <!-- Dirección -->
+        <div class="mb-3 pt-2 col-md-4" t-if="prefix != 'site'">
+            <label for="${prefix}_address">
+                Address
+            </label>
+            <input type="text"
+                id="${prefix}_address"
+                name="${prefix}_address"
+                class="form-control form-control-sm"
+                required="required" maxlength="120"/>
+        </div>
+        
+        
+         <!-- Código Postal -->
+        <div class="mb-3 pt-2 col-md-4">
+            <label for="${prefix}_zip_code">
+                Zip Code
+            </label>
+            <input type="text"
+                   id="${prefix}_zip_code"
+                   name="${prefix}_zip_code"
+                   class="form-control form-control-sm" maxlength="10"/>
+        </div>
     </template>
 </odoo>

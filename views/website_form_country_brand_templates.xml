@@ -54,9 +54,7 @@
                                             style="display: none;">
                                             <label for="entity_type" class="form-label">Entity Type</label>
                                             <select name="entity_type" id="entity_type"
-                                                class="form-select"
-                                                required='False'>
-                                                <option value=""></option>
+                                                class="form-select">
                                                 <option value="private">Private</option>
                                                 <option value="state">State</option>
                                                 <option value="mixed">Mixed</option>
@@ -199,7 +197,7 @@
                                                 id="mlc_account_number"
                                                 class="form-control" maxlength="16" />
                                         </div>
-                                        <div class="form-group" id="mlc_account_number_group"
+                                        <div class="form-group" id="mlc_bank_branch_group"
                                             style="display: none;">
                                             <label for="mlc_bank_branch">MLC Bank Branch</label>
                                             <input type="text" name="mlc_bank_branch"
@@ -317,11 +315,12 @@
                                                 class="form-select"
                                                 required="true">
                                                 <!-- Populate dynamically -->
-                                                <t t-foreach="provinces" t-as="province">
+                                                <!-- <t t-foreach="provinces" t-as="province">
                                                     <option t-att-value="province.id">
                                                         <t t-esc="province.name" />
                                                     </option>
-                                                </t>
+                                                </t> -->
+                                                <option value="a">A</option>
                                             </select>
                                         </div>
 
@@ -332,9 +331,11 @@
                                                 class="form-select"
                                                 required="true">
                                                 <!-- Populate dynamically -->
-                                                <option t-att-value="province.id">
+                                                <!-- <option t-att-value="province.id">
                                                     <t t-esc="province.name" />
-                                                </option>
+                                                </option> -->
+                                                <option value="a">A</option>
+
 
                                             </select>
                                         </div>

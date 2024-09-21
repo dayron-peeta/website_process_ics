@@ -1,0 +1,749 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* df_website_process_ics
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20240802\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-17 21:00+0000\n"
+"PO-Revision-Date: 2024-09-17 21:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.personal_data
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "<option value=\"\">Select...</option>"
+msgstr "<option value=\"\">Seleccionar...</option>"
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.personal_data
+msgid ""
+"<option value=\"\">Select...</option>\n"
+"                <option value=\"spain\">Spain</option>"
+msgstr ""
+"<option value=\"\">Seleccionar...</option>\n"
+"                <option value=\"spain\">España</option>"
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"<option value=\"cuba\">Cuba</option>\n"
+"                                        <option value=\"other\">Other Country</option>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"<option value=\"havana\">Havana</option>\n"
+"                                        <option value=\"other\">Other Province</option>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"<option value=\"plaza\">Plaza</option>\n"
+"                                        <option value=\"other\">Other Municipality</option>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+msgid ""
+"<select id=\"entity_type\" class=\"form-control form-control-sm\" name=\"entity_type\" required=\"required\">\n"
+"                    <option value=\"\">Select...</option>\n"
+"                    <option value=\"state\">State</option>\n"
+"                    <option value=\"private\">Private</option>\n"
+"                    <option value=\"mixed\">Mixed</option>\n"
+"                    <option value=\"others\">Others</option>\n"
+"                </select>"
+msgstr ""
+"<select id=\"entity_type\" class=\"form-control form-control-sm\" name=\"entity_type\" required=\"required\">\n"
+"                                        <option value=\"\">Seleccionar...</option>\n"
+"                                        <option value=\"state\">Estatal</option>\n"
+"                                        <option value=\"private\">Privada</option>\n"
+"                                        <option value=\"mixed\">Mixta</option>\n"
+"                                        <option value=\"others\">Otros</option>\n"
+"                                    </select>"
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid ""
+"<select id=\"frecuency\" class=\"form-control form-control-sm\" name=\"frecuency\" required=\"required\">\n"
+"                                            <option value=\"\">Select...</option>\n"
+"                                            <option value=\"periodic\">Periodic</option>\n"
+"                                            <option value=\"irregular\">Irregular</option>\n"
+"                                        </select>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+msgid ""
+"<select id=\"person_type\" class=\"form-control form-control-sm\" name=\"person_type\" required=\"required\">\n"
+"                    <option value=\"\">Select...</option>\n"
+"                    <option value=\"national_cuban\">National Cuban</option>\n"
+"                    <option value=\"national_foreign\">National Foreign</option>\n"
+"                    <option value=\"legal_cuban\">Legal Cuban</option>\n"
+"                    <option value=\"legal_foreign\">Legal Foreign</option>\n"
+"                </select>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid ""
+"<select id=\"public_to_address\" class=\"form-control form-control-sm\" name=\"public_to_address\" required=\"required\">\n"
+"                                            <option value=\"\">Select...</option>\n"
+"                                            <option value=\"specialist\">Specialists and Workers of the Branch</option>\n"
+"                                            <option value=\"general_publication\">General Population</option>\n"
+"                                            <option value=\"children_and_youngs\">Children and/or Young People</option>\n"
+"                                            <option value=\"others\">Others</option>\n"
+"                                        </select>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid ""
+"<select id=\"publication_type\" class=\"form-control form-control-sm\" name=\"publication_type\" required=\"required\">\n"
+"                                            <option value=\"\">Select...</option>\n"
+"                                            <option value=\"printed\">Printed</option>\n"
+"                                            <option value=\"digital\">Digital</option>\n"
+"                                        </select>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid ""
+"<select multiple=\"multiple\" id=\"digital_traffic_routes_text\" class=\"form-control form-control-sm\" name=\"digital_traffic_routes_text\">\n"
+"                                                <option value=\"email\">Email</option>\n"
+"                                                <option value=\"pdf\">PDF</option>\n"
+"                                                <option value=\"web_site\">Web Site</option>\n"
+"                                            </select>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid ""
+"<select multiple=\"multiple\" id=\"traffic_routes_text\" class=\"form-control form-control-sm\" name=\"traffic_routes_text[]\">\n"
+"                                                <option value=\"national\">National</option>\n"
+"                                                <option value=\"international\">International</option>\n"
+"                                            </select>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"<select name=\"entity_type\" class=\"form-control\" required=\"True\">\n"
+"                                        <option value=\"state\">State</option>\n"
+"                                        <option value=\"private\">Private</option>\n"
+"                                        <option value=\"mixed\">Mixed</option>\n"
+"                                        <option value=\"others\">Others</option>\n"
+"                                    </select>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"<select name=\"event_modality\" class=\"form-control\" required=\"true\">\n"
+"                                        <option value=\"onsite\">On-site</option>\n"
+"                                        <option value=\"online\">Online</option>\n"
+"                                        <option value=\"hybrid\">Hybrid</option>\n"
+"                                    </select>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"<select name=\"event_scope\" class=\"form-control\" required=\"true\">\n"
+"                                        <option value=\"national\">National</option>\n"
+"                                        <option value=\"international\">International</option>\n"
+"                                    </select>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"<select name=\"person_type\" class=\"form-control\" required=\"True\">\n"
+"                                        <option value=\"national_cuban\">National Cuban</option>\n"
+"                                        <option value=\"national_foreign\">National Foreign</option>\n"
+"                                        <option value=\"legal_cuban\">Legal Cuban</option>\n"
+"                                        <option value=\"legal_foreign\">Legal Foreign</option>\n"
+"                                    </select>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"<select name=\"usage_type\" class=\"form-control\" required=\"true\">\n"
+"                                <option value=\"organizational\">Organizational</option>\n"
+"                                <option value=\"goods_services\">Goods and Services</option>\n"
+"                                <option value=\"events\">Events</option>\n"
+"                            </select>"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.personal_data
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Address"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Address of the Publication Headquarters"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"Advertising related to\n"
+"                                        brands,products and services"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Append changes"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Applications (Goods and Services)"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Applications (Organizational)"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "By number"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "By year"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+msgid "CI/REUP/NIT/Passport"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "CUP Account Number"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "CUP Bank Branch"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Cancel"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Commercial Registration"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"Commercial Representation\n"
+"                                        License"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Content generator"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"Convertible Currency Account\n"
+"                                        Number"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Convertible Currency Bank Branch"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.personal_data
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Country"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Country Brand Application Form"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Creation Date"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Creation date"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Director of the Publication"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Documentation"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Does it have mirrors?"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Does the site have one or more serial publications?"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.personal_data
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Email"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Email Signatures"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Entity Type"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Event Duration"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Event Modality"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Event Name"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Exchange"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Frecuency"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Full Name"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Full Name / Official Denomination"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+msgid "Has Legal Representative"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "How distribution is carried out?"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "ID/REUP/NIT/Passport"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Information about the use of the country brand Cuba"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Is it a faithful copy?"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Is the website a serial publication?"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "It can be consulted online?"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Legal Certification"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"Legal Representation\n"
+"                                        Certificate"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+msgid "Legal Representation Guarantee"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Legal Representative Data"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Lugar de Impresión"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "MLC Account Number"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "MLC Bank Branch"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Main Language"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.personal_data
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Municipality"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "No"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Number of Publications per Year"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Number of RNPS"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Number(s) of RNPS"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Options"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Other Application"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Other Entity Type"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Other Full Name / Official Denomination"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Other(s) Language"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Others"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+msgid "Owner's Data"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Packaging"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Person Type"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.personal_data
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Phone"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Place where it is printed?"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Postal Code"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
+msgid "Previously Registered"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.process_publication
+msgid "Process Publication"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.process_website
+msgid "Process Website"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Product Labels"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid ""
+"Promotional Materials and\n"
+"                                        Objects"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Province"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.personal_data
+msgid "Province/State"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Publication Title"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Publication Type"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Record"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Registration of Serial Publication or Website"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Registration of Website"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Request Letter"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Scope"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Serial Publication Data"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Site hosted (Host) in:"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Social Media Profiles"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Stationery"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Submit"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Submit Application"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Target audience"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Technical Characteristics of the Serial Publication"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Throw"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Traffic routes (Digital)?"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "Traffic routes?"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid "URL"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "URL (include aliases)"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Update period"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Usage Type"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Venue"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Web Site Data"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Web Site Title"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Webmaster"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Website"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Website headquarters address"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "Websites and Social Media"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Yes"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.personal_data
+msgid "Zip Code"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "example: www.example.com"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "http://www.example.com/pagina"
+msgstr ""

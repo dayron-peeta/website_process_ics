@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="process_website" name="Process Website">
+        <template id="view_df_process_website" name="Process Website">
             <t t-call="website.layout">
                 <div class="container">
                     <h1>Process Website</h1>

@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "<option value=\"\">Select an entity</option>"
 msgstr "<option value=\"\">Seleccione una entidad</option>"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "<option value=\"havana\">Havana</option>\n"
 "                                        <option value=\"other\">Other Province</option>"
@@ -32,12 +32,12 @@ msgstr ""
 "                                        <option value=\"other\">Otra Provincia</option>"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "<option value=\"other\">Other</option>"
 msgstr "<option value=\"other\">Otros</option>"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "<option value=\"plaza\">Plaza</option>\n"
 "                                        <option value=\"other\">Other Municipality</option>"
@@ -46,7 +46,7 @@ msgstr ""
 "                                        <option value=\"other\">Otro Municipio</option>"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "<select name=\"entity_type\" id=\"entity_type\" class=\"form-control\" required=\"True\">\n"
 "                                        <option value=\"private\">Private</option>\n"
@@ -63,7 +63,7 @@ msgstr ""
 "                                    </select>"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "<select name=\"event_modality\" class=\"form-control\" required=\"true\">\n"
 "                                        <option value=\"onsite\">On-site</option>\n"
@@ -78,7 +78,7 @@ msgstr ""
 "                                    </select>"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "<select name=\"event_scope\" class=\"form-control\" required=\"true\">\n"
 "                                        <option value=\"national\">National</option>\n"
@@ -91,7 +91,7 @@ msgstr ""
 "                                    </select>"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "<select name=\"person_type\" id=\"person_type\" class=\"form-control\" required=\"True\">\n"
 "                                        <option value=\"national_cuban\">National Cuban</option>\n"
@@ -108,7 +108,7 @@ msgstr ""
 "                                    </select>"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "<select name=\"usage_type\" class=\"form-control\" required=\"true\">\n"
 "                                <option value=\"organizational\">Organizational</option>\n"
@@ -123,12 +123,12 @@ msgstr ""
 "                            </select>"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Address"
 msgstr "Dirección"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "Advertising related to\n"
 "                                        brands,products and services"
@@ -137,185 +137,185 @@ msgstr ""
 "                                        marcas, productos y servicios"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Applications (Goods and Services)"
 msgstr "Aplicaciones (Bienes y Servicios)"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Applications (Organizational)"
 msgstr "Aplicaciones (Organizacional)"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "CUP Account Number"
 msgstr "Número de cuenta CUP"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "CUP Bank Branch"
 msgstr "Sucursal bancaria CUP"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Commercial Registration"
 msgstr "Registro  comercial"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "Commercial Representation\n"
 "                                        License"
 msgstr "Licencia de representación comercial"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "Convertible Currency Account\n"
 "                                        Number"
 msgstr "Número de cuenta de moneda convertible"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Convertible Currency Bank Branch"
 msgstr "Sucursal bancaria de moneda convertible"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Country"
 msgstr "País"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Country Brand Application Form"
 msgstr "Formulario de aplicación de Marca País"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Documentation"
 msgstr "Documentación"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Email"
 msgstr "Email"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Email Signatures"
 msgstr "Firmas de correos electrónicos"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Entity Type"
 msgstr "Tipo de entidad"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Event Duration"
 msgstr "Durción delevento"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Event Modality"
 msgstr "Modalidad del evento"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Event Name"
 msgstr "Nombre del evento"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Full Name"
 msgstr "Nombre completo"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Full Name / Official Denomination"
 msgstr "Nombre completo/ Denominación oficial"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "ID/REUP/NIT/Passport"
 msgstr "CI/REUP/NIT/Pasaporte"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Information about the use of the country brand Cuba"
 msgstr "Información sobre el uso de la marca país Cuba"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Legal Certification"
 msgstr "Certificación legal"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "Legal Representation\n"
 "                                        Certificate"
 msgstr "Aval de representación legal"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Legal Representative Data"
 msgstr "Datos del representante legal"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "MLC Account Number"
 msgstr "Número de cuenta MLC"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "MLC Bank Branch"
 msgstr "Sucursal bancaria MLC"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Municipality"
 msgstr "Municipio"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Other Application"
 msgstr "Otra aplicación"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "Other Full Name / Official\n"
 "                                        Denomination"
 msgstr "Otro nombre completo/ Denominación oficial"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Others"
 msgstr "Otros"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Packaging"
 msgstr "Embalajes"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Person Type"
 msgstr "Tipo de persona"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Phone"
 msgstr "Teléfono"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Please enter a valid email address"
 msgstr "Por favor, introduzca una dirección de correo electrónico válida."
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Postal Code"
 msgstr "Código postal"
 
@@ -330,63 +330,63 @@ msgid "Process Website"
 msgstr "Sitio web de proceso"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Product Labels"
 msgstr "Etiquetas"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid ""
 "Promotional Materials and\n"
 "                                        Objects"
 msgstr "Materiales y objetos promocionales"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Province"
 msgstr "Provincia"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Scope"
 msgstr "Alcance"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Social Media Profiles"
 msgstr "Perfiles en redes sociales"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Stationery"
 msgstr "Papelería"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Submit Application"
 msgstr "Presentar solicitud"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Usage Type"
 msgstr "Tipo de uso"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Venue"
 msgstr "Evento"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Website"
 msgstr "Sitio web"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "Websites and Social Media"
 msgstr "Sitios web y redes sociales"
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_country_brand_application_form
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
 msgid "country_brand"
 msgstr "marca_país"

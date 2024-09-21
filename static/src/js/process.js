@@ -90,7 +90,7 @@ odoo.define('df_website_process_ics.process', function (require) {
 
         // Asocia el evento `change` al input         
         toggleFieldInput('cup_account_number', 'cup_bank_branch_group');
-        toggleFieldInput('mlc_account_number', 'mlc_account_number_group');
+        toggleFieldInput('mlc_account_number', 'mlc_bank_branch_group');
         toggleFieldInput('cc_account_number', 'cc_bank_branch_group');
 
         //////////////////////////////////////////////////////////////////////////////
