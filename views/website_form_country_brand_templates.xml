@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="view_country_brand_application_form" name="Country Brand Application Form">
+        <template id="view_df_process_country_brand" name="Process Country Brand">
             <t t-call="website.layout">
                 <div class="container">
                     <h1 class="mt-4 mb-2">Country Brand Application Form</h1>
