@@ -56,15 +56,15 @@ odoo.define('df_website_process_ics.process', function (require) {
             toggleField('person_type', 'representation_license_group', ['national_foreign', 'legal_foreign']);
         });
 
-        $('#usage_type').change(function () {
-            toggleField('usage_type', 'organizational_applications_group', ['organizational']);
-        });
-        $('#usage_type').change(function () {
-            toggleField('usage_type', 'gods_and_services_applications_group', ['goods_services']);
-        });
-        $('#usage_type').change(function () {
-            toggleField('usage_type', 'event_info_group', ['events']);
-        });
+        // $('#usage_type').change(function () {
+        //     toggleField('usage_type', 'organizational_applications_group', ['organizational']);
+        // });
+        // $('#usage_type').change(function () {
+        //     toggleField('usage_type', 'gods_and_services_applications_group', ['goods_services']);
+        // });
+        // $('#usage_type').change(function () {
+        //     toggleField('usage_type', 'event_info_group', ['events']);
+        // });
         ////////////////////////////////////////////////////////////////////
         // Función genérica para MOSTRAR/OCULTAR CAMPOS si se escribe en un input y cambiar el atributo 'required'
         function toggleFieldInput(inputId, targetId) {
@@ -120,6 +120,50 @@ odoo.define('df_website_process_ics.process', function (require) {
         toggleFieldWithCheckbox('checkbox_others_gods_and_services', 'other_g_s_application_group');
         toggleFieldWithCheckbox('checkbox_others_organizational', 'other_org_application_group');
 
+        /////////////////////////////////////////////////////////////////////////////////////
+        //Función genérica para MOSTRAR/OCULTAR SECCIONES al seleccionar y cambiar el atributo 'required'
+        function toggleSection(selectId, targetId, valuesToShow, requiredInside = []) {
+            var select = document.getElementById(selectId);
+            var targetGroup = document.getElementById(targetId);
+
+            // Muestra el campo solo si el valor seleccionado está en `valuesToShow`
+            if (valuesToShow.includes(select.value)) {
+                targetGroup.style.display = 'block'; // Muestra el campo
+
+                // Agregar 'required' a los campos especificados
+                requiredInside.forEach(fieldId => {
+                    const field = document.querySelector(`#${targetId} input[name="${fieldId}"], #${targetId} select[name="${fieldId}"]`);
+                    if (field) {
+                        field.setAttribute('required', 'true'); // Establece 'required' cuando se muestra
+                    }
+                });
+
+            } else {
+                targetGroup.style.display = 'none'; // Oculta el campo
+
+                // Quitar 'required' y restablecer valores a todos los campos dentro de la sección
+                const inputsAndSelects = targetGroup.querySelectorAll('input, select');
+                inputsAndSelects.forEach(field => {
+                    if (field.hasAttribute('required')) {
+                        field.removeAttribute('required'); // Remueve 'required'
+                    }
+                    field.value = ""; // Restablece el valor al ocultar
+
+                    // Si es un checkbox, desmarcarlo
+                    if (field.type === 'checkbox') {
+                        field.checked = false; // Desmarcar el checkbox
+                    }
+                });
+            }
+        }
+
+        //llamada a la función
+        $('#usage_type').change(function () {
+            toggleSection('usage_type', 'organizational_applications_group', ['organizational'], []);
+            toggleSection('usage_type', 'gods_and_services_applications_group', ['goods_services'], []);
+            toggleSection('usage_type', 'event_info_group', ['events'], ['event_name', 'event_duration', 'event_modality', 'event_venue', 'event_documentation', 'event_country', 'event_province', 'event_municipality', 'event_scope']);
+        });
+
 
         //botones Next, Previous and Submit//////////////////////////////////////////////////////////////////////////////////////////////
         // Función para validar campos requeridos en la pestaña activa
@@ -132,9 +176,11 @@ odoo.define('df_website_process_ics.process', function (require) {
             inputs.forEach(function (input) {
                 if (input.required && !input.value) {
                     valid = false;
-                    input.classList.add('is-invalid'); // Agrega clase de Bootstrap para error
+                    input.classList.add('is-invalid');
+                    input.classList.remove('is-valid'); // Elimina la clase de válido si hay un error
                 } else {
-                    input.classList.remove('is-invalid'); // Quita clase de error si está correcto
+                    input.classList.remove('is-invalid');
+                    input.classList.add('is-valid'); // Agrega la clase de válido si el campo está correcto
                 }
             });
 
@@ -195,9 +241,6 @@ odoo.define('df_website_process_ics.process', function (require) {
 
         // Inicializa la primera pestaña visible
         showTab('#nav-application');
-
-
-
 
 
         ////////////////////////////////////////////////////////////////////////////////////
