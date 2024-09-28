@@ -1,21 +1,11 @@
 # -*- coding: utf-8 -*-
 from odoo import http
 from odoo.http import request
+from odoo.addons.df_website_process.controllers.controllers import DfWebsiteProcess
+
 
 
 class DfManagementProcessIcs(http.Controller):
-
-    @http.route('/process/publication',  type='http', auth="public", website=True)
-    def process_publication(self, **kw):
-        values = {}
-        return request.render('df_website_process_ics.process_publication', values)
-
-    @http.route('/process/country_brand/application_form', type='http', auth='public', website=True)
-    def application_form(self, **kw):
-        countries = request.env['res.country'].sudo().search([])
-        return request.render('df_website_process_ics.view_df_process_country_brand', {
-            'countries': countries, 
-    })
         
     @http.route('/process/country_brand/application_submit', type='http', auth='public', methods=['POST'], website=True)
     def application_form_submit(self, **post):
@@ -37,10 +27,23 @@ class DfManagementProcessIcs(http.Controller):
         # create the application / Process the submitted data from the form
         cvalid = request.env['df_management_process.process'].sudo().create_process(post)
         if cvalid:
+            # Redirect to success page
             return request.redirect('/country_brand_application/success')
         
-        # Redirect to success page
-        return request.redirect('/country_brand_application/success')
+
+class DfWebsiteProcessIcs(DfWebsiteProcess):
+
+    def _prepare_values_process(self):
+        values = super()._prepare_values_process()
+        language_ids = request.env['res.lang'].sudo().search(['|', ('active', '=', False), ('active', '=', True)])
+        country_ids = request.env['res.country'].sudo().search([])
+        values.update({
+            'language_ids': language_ids,
+            'country_ids': country_ids
+        })
+        return values
+        
+
 
     
         

@@ -1,12 +1,315 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="view_df_process_website" name="Process Website">
+        <template id="view_df_process_website" name="Web Site Form">
             <t t-call="website.layout">
                 <div class="container">
-                    <h1>Process Website</h1>
+                    <h1 class="mt-4 mb-2">Registration of Website</h1>
+                    <form t-attf-action="/process/#{type_process_id}" method="post"
+                    enctype="multipart/form-data" class="form-horizontal">
+
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-application-tab" 
+                                data-bs-target="#nav-application" type="button" 
+                                role="tab" aria-controls="nav-application" 
+                                aria-selected="true">
+                                Owner's Data</button>
+                            <button class="nav-link" id="nav-representative-tab"  
+                                data-bs-target="#nav-representative" type="button" 
+                                role="tab" aria-controls="nav-representative" 
+                                aria-selected="false" style="display:none;">
+                                Legal Representative Data</button>
+                            <button class="nav-link" id="nav-web-site-tab" 
+                                data-bs-target="#nav-web-site" type="button" 
+                                role="tab" aria-controls="nav-web-site" 
+                                aria-selected="false">
+                                Web Site Data</button>
+                            <button class="nav-link" id="nav-more-tab" 
+                                data-bs-target="#nav-more" type="button" 
+                                role="tab" aria-controls="nav-more" 
+                                aria-selected="false">
+                                More Web Site Data</button>
+                            </div>
+                        </nav>
+
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-application" role="tabpanel" aria-labelledby="nav-application-tab">
+    
+                                <input type="text" name="application_type" id="application_type"
+                                    t-att-value='type_process_id'
+                                    style="display: none;" />
+                                <t t-call="df_website_process_ics.owner_data"/>
+    
+                               <!-- Botone Next -->
+                               <button type="button" class="btn btn-primary next-tab mt-4 mb-5 has-lr"
+                                    style="float: right; display: none;" data-target="#nav-representative">
+                                    Next</button>
+                                <button type="button" class="btn btn-primary next-tab mt-4 mb-5 has-not-lr"
+                                    style="float: right;" data-target="#nav-web-site">
+                                    Next</button>
+                            </div>
+                            <div class="tab-pane fade" id="nav-representative" role="tabpanel" aria-labelledby="nav-representative-tab">
+                                <t t-call="df_website_process_ics.legal_representative_data"/>
+    
+                                <!-- Botones de acción -->
+                                <button type="button" class="btn btn-secondary prev-tab mt-4 mb-5"
+                                    style="float: left;" data-target="#nav-application">Previous</button>
+                                <button type="button" class="btn btn-primary next-tab mt-4 mb-5"
+                                    style="float: right;" data-target="#nav-web-site">
+                                    Next</button>
+                            </div>
+                            <div class="tab-pane fade" id="nav-web-site" role="tabpanel" aria-labelledby="nav-web-site-tab">
+                                <!-- Datos del sitio web -->
+                                <div id="web_site_data">
+                                    <!-- <h3>Web Site Data</h3> -->
+            
+                                    <div class="form-group row" >
+            
+                                        <!-- Título del Sitio -->
+                                        <div class="col-md-6 mb-3 pt-2">
+                                            <label class="form-label" for="site_title">Web Site Title</label>
+                                            <input type="text" id="site_title" name="site_title" class="form-control" maxlength="120" required="required"/>
+                                        </div>
+            
+                                        <!-- Sitio alojado en -->
+                                        <div class="col-md-6 mb-3 pt-2">
+                                            <label class="form-label" for="hosted_site">Site hosted (Host) in:</label>
+                                            <input type="text" id="hosted_site" name="hosted_site" class="form-control" placeholder="example: www.example.com" />
+                                        </div>
+            
+                                        <!-- URL (incluir alias) -->
+                                        <div class="col-md-6 mb-3 pt-2">
+                                            <label class="form-label" for="url" >URL (include aliases)</label>
+                                            <input type="text" id="url" name="url" class="form-control" placeholder="http://www.example.com/pagina" />
+                                        </div>
+
+                                            <!-- Posee espejos -->
+                                        <div class="col-md-3 mb-3 pt-2">
+                                            <label class="form-label" >Does it have mirrors?</label><br/>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="has_mirror" id="mirror_yes" value="yes"/>
+                                                <label class="form-check-label" for="mirror_yes">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="has_mirror" id="mirror_no" value="no" />
+                                                <label class="form-check-label" for="mirror_no">No</label>
+                                            </div>
+            
+                                        </div>
+
+                                        <!-- En caso de seleccionar Sí en la pregunta anterior. -->
+                                        <div class="col-md-3 mb-3 pt-2" style="display:none;" id="has_mirror_container">
+                                            
+                                            <!-- Es copia fiel -->
+                                            <label class="form-label">Is it a faithful copy?</label><br/>    
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="full_copy" id="full_copy_yes" value="yes" />
+                                                        <label class="form-check-label" for="full_copy_yes">Yes</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="full_copy" id="full_copy_no" value="no" />
+                                                        <label class="form-check-label" for="full_copy_no">No</label>
+                                                    </div>   
+                                        </div>
+
+                                        <!-- Anexar cambios -->
+                                        <div style="display:none;" id="append_changes_container" class="col-md-6 mb-3 pt-2">
+                                            <label class="form-label" for="changes">Append changes</label>
+                                            <input type="file" id="changes" name="changes" class="form-control" accept=".doc,.docx,.pdf,.odt" />
+                                        </div>
+            
+            
+                                        <!-- Si el sitio es una publicación seriada -->
+                                        <div class="col-md-6 mb-3 pt-2">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Is the website a serial publication?</label><br/>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="is_serial_publication" id="serial_publication_yes" value="yes"/>
+                                                        <label class="form-check-label" for="serial_publication_yes">Yes</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="is_serial_publication" id="serial_publication_no" value="no" />
+                                                        <label class="form-check-label" for="serial_publication_no">No</label>
+                                                    </div>
+                                                </div>
+                                                    <!-- Número de RNPS -->
+                                                <div style="display:none;" id="rnps_container" class="col-md-6">
+                                                    <label class="form-label" for="rnps_number">Number of RNPS</label>
+                                                    <input type="text" id="rnps_number" name="rnps_number" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+            
+            
+                                        <!-- ¿El sitio posee una o más publicaciones seriadas? -->
+                                        <div class="col-md-6 mb-3 pt-2">
+                                            <label class="form-label">Does the site have one or more serial publications?</label><br/>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="has_serial_publication" id="has_serial_publication_yes" value="yes" />
+                                                <label class="form-check-label" for="has_serial_publication_yes">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="has_serial_publication" id="has_serial_publication_no" value="no" />
+                                                <label class="form-check-label" for="has_serial_publication_no">No</label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Números de RNPS -->
+                                        <div style="display:none;" id="rpns_numbers_container" class="col-md-6 mb-3 pt-2">
+                                            <label class="form-label" for="rnps_numbers">Number(s) of RNPS</label>
+                                            <input type="text" id="rnps_numbers" name="rnps_numbers" class="form-control" />
+                                        </div>
+            
+                                        <!-- Fecha de creación -->
+                                        <div class="col-md-6 mb-3 pt-2">
+                                            <label class="form-label" for="site_created_date" >Creation date</label>
+                                            <input type="date" id="site_created_date" name="site_created_date" class="form-control" required="required" />
+                                        </div>
+            
+            
+                                        <!-- Período de actualización -->
+                                        <div class="col-md-6 mb-3 pt-2">
+                                            <label class="form-label" for="updated_period" >Update period</label>
+                                            <input type="text" id="updated_period" name="updated_period" class="form-control" required="required" />
+                                        </div>
+
+                                        <!-- Idioma Principal -->
+                                        <div class="mb-3 pt-2 col-md-6">
+                                            <label class="form-label" for="site_principal_language">
+                                                Main Language
+                                            </label>
+                                            <select id="site_principal_language" class="form-control" name="site_principal_language" required="required">
+                                                <option value="">Select...</option>
+                                                <option value="spanish">Spanish</option>
+                                                <!-- Opciones de idiomas -->
+                                            </select>
+                                        </div>
+                
+                                        <!-- Otro(s) Idiomas -->
+                                        <div class="mb-3 pt-2 col-md-6">
+                                            <label class="form-label" for="site_others_language">
+                                                Other(s) Language
+                                            </label>
+                                            <input type="text"
+                                                    id="site_others_language"
+                                                    name="site_others_language"
+                                                    class="form-control" maxlength="120"/>
+                                        </div>
+            
+                                    </div>
+                                    <button type="button" class="btn btn-secondary prev-tab mt-4 mb-5 has-not-lr"
+                                        style="float: left;" data-target="#nav-application">Previous</button>
+                                    <button type="button" class="btn btn-secondary prev-tab mt-4 mb-5 has-lr"
+                                        style="float: left; display: none;" data-target="#nav-representative">Previous</button>
+                                    <button type="button" class="btn btn-primary next-tab mt-4 mb-5"
+                                        style="float: right;" data-target="#nav-more">Next</button>
+                                </div>
+    
+                            </div>   
+                            
+                            
+                            <div class="tab-pane fade" id="nav-more" role="tabpanel" aria-labelledby="nav-more-tab">
+                                <!-- Datos del sitio web -->
+                                <div id="more_web_site_data">
+                                    <!-- <h3>Web Site Data</h3> -->
+            
+                                    <div class="form-group row" >
+            
+                                        <!-- Dirección de la sede del Sitio web -->
+                                        <div class="mb-3 pt-2 col-md-6">
+                                            <label class="form-label" for="direccion_sede" >Website headquarters address</label>
+                                            <input type="text" id="direccion_sede" name="direccion_sede" class="form-control" maxlength="120" required="required" />
+                                        </div>
+
+                                        <t t-set="prefix" t-value="'site'"/>
+                                        <t t-call="df_website_process_ics.personal_data"/>
+
+                                        <!-- Webmaster -->
+                                        <div class="col-md-6 mb-3 pt-2">
+                                            <label class="form-label" for="webmaster" >Webmaster</label>
+                                            <input type="text" id="webmaster" name="webmaster" class="form-control" maxlength="120" />
+                                        </div>
+
+                                        <div class="mb-3 pt-2 col-md-6">
+                                            <label class="form-label" for="webmaster_phone">
+                                                Webmaster Phone
+                                            </label>
+                                            <input type="text"
+                                                id="webmaster_phone"
+                                                name="webmaster_phone"
+                                                class="form-control"
+                                                required="required" maxlength="15"/>
+                                        </div>
+                                
+                                        <!-- Correo Electrónico -->      
+                                        <div class="mb-3 field-test pt-2 col-md-6">
+                                            <label class="form-label" for="webmaster_email">
+                                                Webmaster Email
+                                            </label>
+                                            <input type="email"
+                                                id="webmaster_email"
+                                                name="webmaster_email"
+                                                class="form-control"
+                                                required="required"/>
+                                        </div>  
+
+                                        <!-- Generador de contenido -->
+                                        <div class="col-md-6 mb-3 pt-2">
+                                            <label class="form-label" for="content_generator" >Content generator</label>
+                                            <input type="text" id="content_generator" name="content_generator" class="form-control" maxlength="120" />
+                                        </div>
+
+                                        <div class="mb-3 pt-2 col-md-6">
+                                            <label class="form-label" for="content_generator_phone">
+                                                Content Generator Phone
+                                            </label>
+                                            <input type="text"
+                                                id="content_generator_phone"
+                                                name="content_generator_phone"
+                                                class="form-control"
+                                                required="required" maxlength="15"/>
+                                        </div>
+                                
+                                        <!-- Correo Electrónico -->      
+                                        <div class="mb-3 field-test pt-2 col-md-6">
+                                            <label class="form-label" for="content_generator_email">
+                                                Content Generator Email
+                                            </label>
+                                            <input type="email"
+                                                id="content_generator_email"
+                                                name="content_generator_email"
+                                                class="form-control"
+                                                required="required"/>
+                                        </div>  
+            
+                                    </div>
+                                    <button type="button" class="btn btn-secondary prev-tab mt-4 mb-5"
+                                        style="float: left;" data-target="#nav-web-site">Previous</button>
+                                    <button type="button" id='submit-button' class="btn btn-primary mt-4 mb-5"
+                                        style="float: right;">
+                                        Submit Application</button>
+                                </div>       
+    
+                            </div> 
+    
+                        </div>
+                    </form>
                 </div>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css"/>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"/>
+                <div class="col-md-6 mb-3 pt-2" style="display:none;" id="digital_traffic_routes_container">
+                    <label class="form-label">Traffic routes</label><br/>
+                    <select multiple="multiple" id="digital_traffic_routes_text" class="select2" name="digital_traffic_routes_text" required="required">
+                        <option value="email">Email</option>
+                        <option value="pdf">PDF</option>
+                        <option value="web_site">Web Site</option>
+                    </select>
+                </div>               
             </t>
+    
         </template>
     </data>
 </odoo>

@@ -5,9 +5,11 @@
             <t t-call="website.layout">
                 <div class="container">
                     <h1 class="mt-4 mb-2">Country Brand Application Form</h1>
-                    <form action="/process/country_brand/application_submit" method="post"
+
+                    <form t-attf-action="/process/#{type_process_id}" method="post"
                         enctype="multipart/form-data" class="form-horizontal">
-                        <!-- <t t-call="website.csrf_token"/> -->
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+
                         <nav class='mb-2'>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 <button class="nav-link active" id="nav-application-tab"
@@ -34,8 +36,8 @@
                                 <!-- Datos de la solicitud -->
                                 <div class="row">
                                     <!-- First column -->
-                                    <input type="text" name="application_type" id="application_type"
-                                        value='country_brand'
+                                    <input type="text" name="type_process_id" id="type_process_id"
+                                        t-att-value='type_process_id'
                                         style="display: none;" />
 
                                     <div class="col-md-6">
@@ -64,13 +66,14 @@
                                         <div class="form-group" id="full_name_group"
                                             style="display: none;">
                                             <label for="full_name">Full Name / Official Denomination</label>
-                                            <select name="full_name" id="full_name"
+                                            <select name="name" id="full_name"
                                                 class="form-select"
                                             >
                                                 <!-- Aquí se cargan dinámicamente las entidades
                                                 desde la
                                                 base de datos -->
                                                 <option value="">Select an entity</option>
+                                                <option value="ent1">entity</option>
                                                 <!-- <t
                                                 t-foreach="request.env['your.model.entity'].sudo().search([])"
                                                     t-as="entity">
@@ -314,6 +317,7 @@
                                             <select name="representative_province"
                                                 class="form-select"
                                                 required="true">
+                                                <option value="">Select</option>
                                                 <!-- Populate dynamically -->
                                                 <!-- <t t-foreach="provinces" t-as="province">
                                                     <option t-att-value="province.id">
@@ -330,6 +334,7 @@
                                             <select name="representative_municipality"
                                                 class="form-select"
                                                 required="true">
+                                                <option value="">Select</option>
                                                 <!-- Populate dynamically -->
                                                 <!-- <option t-att-value="province.id">
                                                     <t t-esc="province.name" />
@@ -576,9 +581,10 @@
 
 
                                 <!-- Botón de Enviar -->
-                                <button type="button"  class="btn btn-secondary prev-tab mt-4 mb-5"
+                                <button type="button" class="btn btn-secondary prev-tab mt-4 mb-5"
                                     style="float: left;" data-target="#nav-representative">Previous</button>
-                                <button type="button" id='submit-button' class="btn btn-primary mt-4 mb-5"
+                                <button type="button" id='submit-button'
+                                    class="btn btn-primary mt-4 mb-5"
                                     style="float: right;">
                                     Submit Application</button>
                             </div>

@@ -6,14 +6,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0-20240802\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-17 21:00+0000\n"
-"PO-Revision-Date: 2024-09-17 21:00+0000\n"
+"POT-Creation-Date: 2024-09-18 20:30+0000\n"
+"PO-Revision-Date: 2024-09-18 20:30+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid ""
+"<br/>\n"
+"                                        <select multiple=\"multiple\" id=\"digital_traffic_routes_text\" class=\"form-control form-control-sm\" name=\"digital_traffic_routes_text\">\n"
+"                                            <option value=\"email\">Email</option>\n"
+"                                            <option value=\"pdf\">PDF</option>\n"
+"                                            <option value=\"web_site\">Web Site</option>\n"
+"                                        </select>"
+msgstr ""
+"<br/>\n"
+"                                        <select multiple=\"multiple\" id=\"digital_traffic_routes_text\" class=\"form-control form-control-sm\" name=\"digital_traffic_routes_text\">\n"
+"                                            <option value=\"email\">Correo Electrónico</option>\n"
+"                                            <option value=\"pdf\">PDF</option>\n"
+"                                            <option value=\"web_site\">Sitio Web</option>\n"
+"                                        </select>"
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid ""
+"<br/>\n"
+"                                        <select multiple=\"multiple\" id=\"traffic_routes_text\" class=\"form-control form-control-sm\" name=\"traffic_routes_text[]\">\n"
+"                                            <option value=\"national\">National</option>\n"
+"                                            <option value=\"international\">International</option>\n"
+"                                        </select>"
+msgstr ""
+"<br/>\n"
+"                                        <select multiple=\"multiple\" id=\"traffic_routes_text\" class=\"form-control form-control-sm\" name=\"traffic_routes_text[]\">\n"
+"                                            <option value=\"national\">Nacional</option>\n"
+"                                            <option value=\"international\">Internacional</option>\n"
+"                                        </select>"
 
 #. module: df_website_process_ics
 #: model_terms:ir.ui.view,arch_db:df_website_process_ics.personal_data
@@ -64,12 +96,12 @@ msgid ""
 "                </select>"
 msgstr ""
 "<select id=\"entity_type\" class=\"form-control form-control-sm\" name=\"entity_type\" required=\"required\">\n"
-"                                        <option value=\"\">Seleccionar...</option>\n"
-"                                        <option value=\"state\">Estatal</option>\n"
-"                                        <option value=\"private\">Privada</option>\n"
-"                                        <option value=\"mixed\">Mixta</option>\n"
-"                                        <option value=\"others\">Otros</option>\n"
-"                                    </select>"
+"                    <option value=\"\">Seleccionar...</option>\n"
+"                    <option value=\"state\">Estatal</option>\n"
+"                    <option value=\"private\">Privada</option>\n"
+"                    <option value=\"mixed\">Mixta</option>\n"
+"                    <option value=\"others\">Otro</option>\n"
+"                </select>"
 
 #. module: df_website_process_ics
 #: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
@@ -80,6 +112,11 @@ msgid ""
 "                                            <option value=\"irregular\">Irregular</option>\n"
 "                                        </select>"
 msgstr ""
+"<select id=\"frecuency\" class=\"form-control form-control-sm\" name=\"frecuency\" required=\"required\">\n"
+"                                            <option value=\"\">Seleccionar...</option>\n"
+"                                            <option value=\"periodic\">Periódico</option>\n"
+"                                            <option value=\"irregular\">Irregular</option>\n"
+"                                        </select>"
 
 #. module: df_website_process_ics
 #: model_terms:ir.ui.view,arch_db:df_website_process_ics.partner_data
@@ -92,6 +129,13 @@ msgid ""
 "                    <option value=\"legal_foreign\">Legal Foreign</option>\n"
 "                </select>"
 msgstr ""
+"<select id=\"person_type\" class=\"form-control form-control-sm\" name=\"person_type\" required=\"required\">\n"
+"                    <option value=\"\">Seleccionar...</option>\n"
+"                    <option value=\"national_cuban\">Nantural Cubana</option>\n"
+"                    <option value=\"national_foreign\">Natural Extranjera</option>\n"
+"                    <option value=\"legal_cuban\">Jurídica Cubana</option>\n"
+"                    <option value=\"legal_foreign\">Jurídica Extranjera</option>\n"
+"                </select>"
 
 #. module: df_website_process_ics
 #: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
@@ -104,6 +148,13 @@ msgid ""
 "                                            <option value=\"others\">Others</option>\n"
 "                                        </select>"
 msgstr ""
+"<select id=\"public_to_address\" class=\"form-control form-control-sm\" name=\"public_to_address\" required=\"required\">\n"
+"                                            <option value=\"\">Seleccionar...</option>\n"
+"                                            <option value=\"specialist\">Especialistas y trabajadores de la rama</option>\n"
+"                                            <option value=\"general_publication\">Población general</option>\n"
+"                                            <option value=\"children_and_youngs\">Niños y/o jóvenes</option>\n"
+"                                            <option value=\"others\">Otros</option>\n"
+"                                        </select>"
 
 #. module: df_website_process_ics
 #: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
@@ -114,6 +165,11 @@ msgid ""
 "                                            <option value=\"digital\">Digital</option>\n"
 "                                        </select>"
 msgstr ""
+"<select id=\"publication_type\" class=\"form-control form-control-sm\" name=\"publication_type\" required=\"required\">\n"
+"                                            <option value=\"\">Seleccionar...</option>\n"
+"                                            <option value=\"printed\">Impreso</option>\n"
+"                                            <option value=\"digital\">Digital</option>\n"
+"                                        </select>"
 
 #. module: df_website_process_ics
 #: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
@@ -263,6 +319,16 @@ msgstr ""
 
 #. module: df_website_process_ics
 #: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Content Generator Email"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Content Generator Phone"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
 msgid "Content generator"
 msgstr ""
 
@@ -380,13 +446,14 @@ msgid "Has Legal Representative"
 msgstr ""
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
-msgid "How distribution is carried out?"
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
+msgid "ID/REUP/NIT/Passport"
 msgstr ""
 
 #. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_df_process_country_brand
-msgid "ID/REUP/NIT/Passport"
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
+msgid ""
+"If it is a non-commercial publication, how is distribution carried out?"
 msgstr ""
 
 #. module: df_website_process_ics
@@ -536,7 +603,7 @@ msgstr ""
 
 #. module: df_website_process_ics
 #: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
-msgid "Place where it is printed?"
+msgid "Place where it is printed"
 msgstr ""
 
 #. module: df_website_process_ics
@@ -598,7 +665,7 @@ msgstr ""
 
 #. module: df_website_process_ics
 #: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
-msgid "Registration of Serial Publication or Website"
+msgid "Registration of Serial Publication"
 msgstr ""
 
 #. module: df_website_process_ics
@@ -664,12 +731,7 @@ msgstr ""
 
 #. module: df_website_process_ics
 #: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
-msgid "Traffic routes (Digital)?"
-msgstr ""
-
-#. module: df_website_process_ics
-#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_serial_publication_form
-msgid "Traffic routes?"
+msgid "Traffic routes"
 msgstr ""
 
 #. module: df_website_process_ics
@@ -710,6 +772,16 @@ msgstr ""
 #. module: df_website_process_ics
 #: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
 msgid "Webmaster"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Webmaster Email"
+msgstr ""
+
+#. module: df_website_process_ics
+#: model_terms:ir.ui.view,arch_db:df_website_process_ics.view_web_site_form
+msgid "Webmaster Phone"
 msgstr ""
 
 #. module: df_website_process_ics
